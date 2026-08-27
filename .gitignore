@@ -1,0 +1,22 @@
+# Ambiente virtual — recriável a partir do requirements.txt
+.venv/
+
+# Dados — nunca versionar (arquivos grandes e, se vierem da empresa, sensíveis)
+dados/
+
+# Modelos treinados — binários grandes
+modelos/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Metadados de execução de notebooks
+.ipynb_checkpoints/
+
+# Arquivos compactados
+*.zip
+
+# Temporários de sistema operacional
+Thumbs.db
+.DS_Store

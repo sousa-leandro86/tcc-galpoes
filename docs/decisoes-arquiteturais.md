@@ -1,0 +1,1 @@
+Optou-se por excluir dados de 2020–2022 para evitar o viés do período pandêmico sobre a série temporal
