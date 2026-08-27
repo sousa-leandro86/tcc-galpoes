@@ -1,0 +1,105 @@
+-----------------------
+Campo: CNPJ_Emissor
+-----------------------
+   Descrição : CNPJ do emissor
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 50
+
+-----------------------
+Campo: CNPJ_Fundo_Classe
+-----------------------
+   Descrição : CNPJ do fundo/classe
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 18
+
+-----------------------
+Campo: Data_Referencia
+-----------------------
+   Descrição : Data de referência do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Data_Vencimento
+-----------------------
+   Descrição : Data de Vencimento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Emissao
+-----------------------
+   Descrição : Número da Emissão
+   Domínio   : Numérico
+   Tipo Dados: varchar
+   Tamanho   : 50
+
+-----------------------
+Campo: Emissor
+-----------------------
+   Descrição : Nome do Emissor
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Serie
+-----------------------
+   Descrição : Número da Série
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 20
+
+-----------------------
+Campo: Tipo
+-----------------------
+   Descrição : Tipo
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 25
+
+-----------------------
+Campo: Versao
+-----------------------
+   Descrição : Versão do documento
+   Domínio   : Numérico
+   Tipo Dados: tinyint
+   Precisão  : 3
+   Scale     : 0
+
+-----------------------
+Campo: Codigo_Acao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 50
+
+-----------------------
+Campo: Nome_Ativo
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Valor
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Quantidade
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+

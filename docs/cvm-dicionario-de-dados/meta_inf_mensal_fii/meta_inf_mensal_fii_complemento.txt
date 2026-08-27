@@ -1,0 +1,257 @@
+-----------------------
+Campo: CNPJ_Fundo_Classe
+-----------------------
+   Descrição : CNPJ do fundo/classe
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 18
+
+-----------------------
+Campo: Data_Informacao_Numero_Cotistas
+-----------------------
+   Descrição : Data da Informação sobre detalhamento do número de cotistas
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Data_Referencia
+-----------------------
+   Descrição : Data de referência do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Percentual_Amortizacao_Cotas_Mes
+-----------------------
+   Descrição : Percentual de amortizações de cotas do Mês de Referência
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Despesas_Agente_Custodiante
+-----------------------
+   Descrição : Percentual de despesas com o agente custodiante em relação ao patrimônio líquido do mês
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Despesas_Taxa_Administracao
+-----------------------
+   Descrição : Percentual de despesas com a taxa de administração em relação ao patrimônio líquido do mês
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Dividend_Yield_Mes
+-----------------------
+   Descrição : Percentual de Dividend Yield do Mês de Referência
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Rentabilidade_Efetiva_Mes
+-----------------------
+   Descrição : Percentual de Rentabilidade Efetiva Mensal
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Rentabilidade_Patrimonial_Mes
+-----------------------
+   Descrição : Percentual de Rentabilidade Patrimonial do Mês de Referência
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Versao
+-----------------------
+   Descrição : Versão do documento
+   Domínio   : Numérico
+   Tipo Dados: tinyint
+   Precisão  : 3
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Pessoa_Juridica_Nao_Financeira
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Outras_Pessoas_Juridicas_Financeir
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Banco_Comercial
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Outros_Fundos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Pessoa_Fisica
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Entidade_Aberta_Previdencia_Comple
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Regime_Proprio_Previdencia_Servido
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Distribuidores_Fundo
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Sociedade_Seguradora_Resseguradora
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Outros_Tipos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Patrimonio_Liquido
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Total_Numero_Cotistas
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Valor_Patrimonial_Cotas
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Numero_Cotistas_Entidade_Fechada_Previdência_Compl
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Valor_Ativo
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Numero_Cotistas_Sociedade_Capitalizacao_Arrendamen
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_FII
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Cotas_Emitidas
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Numero_Cotistas_Corretora_Distribuidora
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+
+-----------------------
+Campo: Numero_Cotistas_Investidores_Nao_Residentes
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: int
+   Precisão  : 10
+   Scale     : 0
+

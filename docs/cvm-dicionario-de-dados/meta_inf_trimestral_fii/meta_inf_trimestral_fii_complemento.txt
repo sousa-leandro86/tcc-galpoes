@@ -1,0 +1,385 @@
+-----------------------
+Campo: CNPJ_Fundo_Classe
+-----------------------
+   Descrição : CNPJ do fundo/classe
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 18
+
+-----------------------
+Campo: Data_Referencia
+-----------------------
+   Descrição : Data de referência do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Versao
+-----------------------
+   Descrição : Versão do documento
+   Domínio   : Numérico
+   Tipo Dados: tinyint
+   Precisão  : 3
+   Scale     : 0
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_12a15Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Politica_Contratacao_Seguro_Imovel_Renda_Construca
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : -1
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_Indetermin
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Caracteristicas_Contratuais
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : -1
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_Acima_36Me
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_15a18Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_27a30Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_30a33Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_3a6Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_27a30Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Receita_FII_IGPM
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_6a9Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_21a24Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_18a21Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_12a15Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Politica_Contratacao_Seguro_Imovel_Venda_Acabado
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : -1
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_33a36Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_6a9Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Ativo_Liquidez_Valor_Disponibilidades
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Ativo_Liquidez_Valor_Titulos_Publicos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Ativo_Liquidez_Valor_Fundos_Renda_Fixa
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Valor_Total_IPCA
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_15a18Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Valor_Total_INCC
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_Ate_3Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Receita_FII_INCC
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_30a33Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Ativo_Liquidez_Valor_Titulos_Privados
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_Indetermin
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_33a36Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Politica_Contratacao_Seguro_Imovel_Venda_Construca
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : -1
+
+-----------------------
+Campo: Percentual_Indexador_Valor_Total_INPC
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Valor_Total_IGPM
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_24a27Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_9a12Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_21a24Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Receita_FII_INPC
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Indexador_Receita_FII_IPCA
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_Ate_3Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_18a21Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Receita_FII_Faixa_9a12Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_Acima_36Me
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_24a27Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Percentual_Vencimento_Valor_Total_Faixa_3a6Meses
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Politica_Contratacao_Seguro_Imovel_Renda_Acabado
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : -1
+

@@ -1,0 +1,417 @@
+-----------------------
+Campo: Acoes_Sociedades_Atividades_FII
+-----------------------
+   Descrição : Ações de Sociedades cujo único propósito se enquadra entre as atividades permitidas aos FII
+   Domínio   : Numérico
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Bonus_Subscricao
+-----------------------
+   Descrição : Bônus de Subscrição, seus cupons, direitos, recibos de subscrição e certificados de desdobramentos
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: CEPAC
+-----------------------
+   Descrição : Certificados de Potencial Adicional de Construção
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: CNPJ_Fundo_Classe
+-----------------------
+   Descrição : CNPJ do fundo/classe
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 18
+
+-----------------------
+Campo: Cotas_Sociedades_Atividades_FII
+-----------------------
+   Descrição : Cotas de Sociedades que se enquadre entre as atividades permitidas aos FII
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: CRI
+-----------------------
+   Descrição : Certificado de Recebíveis Imobiliários
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Data_Referencia
+-----------------------
+   Descrição : Data de referência do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: FDIC
+-----------------------
+   Descrição : Fundo de Investimento em Direitos Creditórios
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: FII
+-----------------------
+   Descrição : Fundo de Investimento Imobiliário
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: FIP
+-----------------------
+   Descrição : Fundo de Investimento em Participações
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: LCI
+-----------------------
+   Descrição : Letras de Crédito Imobiliário
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: LIG
+-----------------------
+   Descrição : Letra Imobiliária Garantida
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Versao
+-----------------------
+   Descrição : Versão do documento
+   Domínio   : Numérico
+   Tipo Dados: tinyint
+   Precisão  : 3
+   Scale     : 0
+
+-----------------------
+Campo: Total_Passivo
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Acoes
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Adiantamento_Venda_Imoveis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Obrigacoes_Securitizacao_Recebiveis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Rendimentos_Distribuir
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Outros_Valores_Pagar
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Outras_Cotas_FI
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Direitos_Bens_Imoveis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Outros_Valores_Mobliarios
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Cedulas_Debentures
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Outros_Valores_Receber
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Disponibilidades
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Total_Necessidades_Liquidez
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Contas_Receber_Venda_Imoveis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Debentures
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Instrumentos_Financeiros_Derivativos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Fundos_Renda_Fixa
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Letras_Hipotecarias
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Imoveis_Renda_Construcao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Obrigacoes_Aquisicao_Imoveis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Adiantamento_Alugueis
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Imoveis_Venda_Acabados
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Taxa_Administracao_Pagar
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Terrenos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Outros_Direitos_Reais
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Imoveis_Renda_Acabados
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Total_Investido
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Titulos_Publicos
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Provisoes_Contigencias
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Taxa_Performance_Pagar
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: CRI_CRA
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Notas_Promissorias
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Fundo_Acoes
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: LCI_LCA
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Valores_Receber
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Imoveis_Venda_Construcao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Certificados_Deposito_Valores_Mobiliarios
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Contas_Receber_Aluguel
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Titulos_Privados
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+

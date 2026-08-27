@@ -1,0 +1,313 @@
+-----------------------
+Campo: Bairro
+-----------------------
+   Descrição : Bairro
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: CEP
+-----------------------
+   Descrição : CEP
+   Domínio   : Numérico
+   Tipo Dados: varchar
+   Tamanho   : 10
+
+-----------------------
+Campo: Cidade
+-----------------------
+   Descrição : Cidade
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: CNPJ_Fundo_Classe
+-----------------------
+   Descrição : CNPJ do fundo/classe
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 18
+
+-----------------------
+Campo: Complemento
+-----------------------
+   Descrição : Complemento
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Cotistas_Vinculo_Familiar
+-----------------------
+   Descrição : Indica se os cotistas possuem vínculo familiar ou societário familiar
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Data_Entrega
+-----------------------
+   Descrição : Data de entrega/recebimento do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Data_Referencia
+-----------------------
+   Descrição : Data de referência do documento
+   Domínio   : AAAA-MM-DD
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Email
+-----------------------
+   Descrição : Endereço de e-mail
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Entidade_Administradora_BVMF
+-----------------------
+   Descrição : Indica se a entidade administradora de mercado organizado é BVMF
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Entidade_Administradora_CETIP
+-----------------------
+   Descrição : Indica se a entidade administradora de mercado organizado é CETIP
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Estado
+-----------------------
+   Descrição : Estado
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Fundo_Exclusivo
+-----------------------
+   Descrição : Indica se é fundo exclusivo
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Logradouro
+-----------------------
+   Descrição : Logradouro
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Mercado_Negociacao_Bolsa
+-----------------------
+   Descrição : Indica se o mercado de negociação das cotas é Bolsa 
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Mercado_Negociacao_MB
+-----------------------
+   Descrição : Indica se o mercado de negociação das cotas é MB
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Mercado_Negociacao_MBO
+-----------------------
+   Descrição : Indica se o mercado de negociação das cotas é MBO
+   Domínio   : S/N
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Nome_Administrador
+-----------------------
+   Descrição : Nome do administrador
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Publico_Alvo
+-----------------------
+   Descrição : Público-alvo
+   Domínio   : Alfanumérico
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Versao
+-----------------------
+   Descrição : Versão do documento
+   Domínio   : Numérico
+   Tipo Dados: tinyint
+   Precisão  : 3
+   Scale     : 0
+
+-----------------------
+Campo: Quantidade_Cotas_Emitidas
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: nvarchar
+   Tamanho   : 4000
+
+-----------------------
+Campo: Mandato
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Data_Funcionamento
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Encerramento_Exercicio_Social
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 20
+
+-----------------------
+Campo: Fundo_Nao_Listado_Exclusivo
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 3
+
+-----------------------
+Campo: Tipo_Gestao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Site
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Data_Prazo_Duracao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Telefone1
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Tipo_Fundo_Classe
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 6
+
+-----------------------
+Campo: Prazo_Duracao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Codigo_ISIN
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: CNPJ_Administrador
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 14
+
+-----------------------
+Campo: Telefone2
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Data_Encerramento_Trimestre
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: date
+   Tamanho   : 10
+
+-----------------------
+Campo: Nome_Fundo_Classe
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Segmento_Atuacao
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Numero
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
+-----------------------
+Campo: Telefone3
+-----------------------
+   Descrição : 
+   Domínio   : 
+   Tipo Dados: varchar
+   Tamanho   : 255
+
