@@ -195,3 +195,21 @@ a questão de pesquisa, que pergunta pela arquitetura do pipeline, não pelo ind
 - Autorização para usar dados da empresa. Opcional — o trabalho se sustenta só com a CVM.
 - Solicitar template e normas ABNT à coordenação.
 - Verificar na fonte as citações clássicas do referencial teórico antes de fechar o texto.
+
+## 13/09/2026 — Duagnóstico de Qualidade
+
+Rodei diagnóstico de qualidade na tabela imovel (2025, fundos logísticos, 1640 registros).
+
+Percentual_Locado tem 97,7% de valores vazios — só 37 registros preenchidos. Coluna
+inutilizável. Cai por terra o plano de validar Locado + Vacancia = 100%. Vou usar
+Percentual_Vacancia como indicador único e derivar ocupação como 1 - vacância.
+
+Vacancia, Inadimplencia e Receitas_FII têm ~6% de vazios, o que é aceitável.
+Area não tem nenhum vazio.
+
+Confirmado que os percentuais estão em escala decimal (0 a 1), não 0 a 100. O max de
+Percentual_Vacancia é exatamente 1.0. Vacância média de 4,1%, mediana zero — coerente
+com o mercado logístico.
+
+Encontrei outlier grave em Area: máximo de 191.766.900 m². Área mediana é 13.912 m².
+Provável erro de preenchimento na origem. Primeiro caso concreto para a quarentena.

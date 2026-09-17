@@ -3,7 +3,7 @@
 Registro das decisões técnicas do projeto e seus motivos. O diário conta o processo;
 aqui fica só a decisão final. Serve de base para Materiais e Métodos.
 
----
+
 
 ## DA-01 — Fonte de dados (16/08/2026)
 
@@ -21,7 +21,7 @@ A limitação é que a granularidade é por imóvel e por trimestre, não por co
 renovação contratual, inadimplência por locatário e vencimento individual ficam de fora —
 entram como trabalhos futuros.
 
----
+
 
 ## DA-02 — Arquitetura em camadas (17/08/2026)
 
@@ -39,7 +39,7 @@ reportar a taxa de rejeição, não descartar em silêncio.
 
 A mesma estrutura é criada local e replicada na nuvem, com os mesmos nomes de pasta.
 
----
+
 
 ## DA-03 — Ambiente isolado (18/08/2026)
 
@@ -52,7 +52,7 @@ recriar o ambiente exato — que é o critério de reprodutibilidade que a banca
 Bibliotecas: pandas, pyarrow (Parquet), duckdb (SQL local), scikit-learn, matplotlib,
 seaborn, ipykernel e openpyxl.
 
----
+
 
 ## DA-04 — O que vai para o Git (27/08/2026)
 
@@ -65,7 +65,7 @@ repositório, mesmo sendo privado.
 
 Branch única (`main`), por ser trabalho de um autor só.
 
----
+
 
 ## DA-05 — Formato de arquivo (27/08/2026)
 
@@ -77,7 +77,7 @@ carrega o esquema de tipos dentro do próprio arquivo, sem precisar inferir a ca
 É o formato nativo tanto do S3/Athena quanto do OneLake, o que garante portabilidade na
 migração.
 
----
+
 
 ## DA-06 — Recorte temporal (27/08/2026)
 
@@ -89,7 +89,7 @@ pontos, pouco demais para série temporal. Sete anos dão uns 26.
 Incluir 2020–2022 traz o período de pandemia, quando o setor logístico teve expansão atípica
 com o e-commerce. Em vez de problema, vira assunto de análise.
 
----
+
 
 ## DA-07 — Seleção dos fundos logísticos (29/08/2026)
 
@@ -105,7 +105,7 @@ segmento.
 
 No informe de 2025 o filtro retornou 299 registros e 100 CNPJs distintos.
 
----
+
 
 ## DA-08 — Deduplicação por CNPJ (29/08/2026)
 
@@ -115,7 +115,7 @@ O campo `Tipo_Fundo_Classe` assume "Fundo" ou "Classe". Fundos com classes de co
 mais de uma linha para o mesmo CNPJ, e os nomes divergem entre elas. Contar por nome geraria
 dupla contagem; contar por CNPJ preserva a entidade.
 
----
+
 
 ## DA-09 — Particionamento (03/09/2026)
 
@@ -127,7 +127,7 @@ O particionamento reduz custo porque o motor de consulta ignora as pastas fora d
 Athena e o endpoint SQL do Fabric não abrem ZIP — a Bronze é lida uma vez na ingestão e nunca
 é consultada. Particioná-la não economizaria nada.
 
----
+
 
 ## DA-10 — O que este trabalho entrega (03/09/2026)
 
@@ -143,7 +143,7 @@ Isso é coerente com a questão de pesquisa aprovada, que pergunta pela metodolo
 arquitetura de pipeline necessárias para coletar, integrar e tratar os dados. O objeto é o
 pipeline, não o indicador.
 
----
+
 
 ## Ainda em aberto
 
@@ -152,3 +152,16 @@ pipeline, não o indicador.
 - **DA-12** — O que fazer com registros de `Segmento_Atuacao` nulo. Defino ao implementar a
   Silver.
 - **DA-13** — Método de projeção da série temporal. Defino depois da análise exploratória.
+
+
+
+## DA-14 — Indicador de ocupação (10/09/2026)
+
+Decisão: usar Percentual_Vacancia como indicador único e derivar a ocupação como
+1 - vacância. Percentual_Locado não é utilizado.
+
+Motivo: o campo Percentual_Locado tem 97,7% de nulos na amostra analisada,
+inviabilizando qualquer análise sobre ele. Como ocupação e vacância são
+complementares, nenhuma informação se perde — apenas a possibilidade de validação
+cruzada entre os dois campos, que é substituída por regras de faixa (vacância entre
+0 e 1) e de plausibilidade de área.

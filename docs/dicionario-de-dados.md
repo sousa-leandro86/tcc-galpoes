@@ -155,6 +155,13 @@ converter.
 
 **Nulos.** `Segmento_Atuacao` aceita nulo. Os demais campos ainda não foram avaliados.
 
+**Escala:** os campos percentuais (Percentual_Vacancia, Percentual_Locado,
+Percentual_Inadimplencia, Percentual_Receitas_FII) vêm em escala decimal, de 0 a 1.
+Multiplicar por 100 para apresentação.
+
+Preenchimento: Percentual_Locado tem 97,7% de nulos na amostra de 2025 e não é
+utilizável. Os demais percentuais têm cerca de 6% de nulos.
+
 ---
 
 ## Campos derivados
@@ -164,3 +171,6 @@ Preencher conforme os indicadores forem criados na Silver e na Gold.
 | Campo | Fórmula | Camada | Por quê |
 |---|---|---|---|
 | | | | |
+
+
+
