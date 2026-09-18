@@ -3,12 +3,13 @@
 Especialização em Engenharia de Dados e Big Data — PECE/Poli-USP
 
 ## Objetivo
-Arquitetura de dados em nuvem (Bronze/Silver/Gold) para coletar, tratar e
-analisar dados históricos de aluguéis e ocupação de galpões logísticos,
-gerando indicadores de vacância e previsão por série temporal.
+Aplicar técnicas de tratamento e feature engineering sobre dados históricos de
+aluguéis e características operacionais de galpões logísticos, integrados via
+pipeline em camadas (Bronze/Silver/Gold), gerando indicadores de vacância e
+ocupação e uma série temporal analítica.
 
 ## Fonte de dados
-Informes públicos de FIIs logísticos (CVM), 2023–2025.
+Informes públicos de FIIs logísticos (CVM), 2020–2026.
 
 ## Como recriar o ambiente
 ​```
