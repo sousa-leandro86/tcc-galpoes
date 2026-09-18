@@ -129,19 +129,29 @@ Athena e o endpoint SQL do Fabric não abrem ZIP — a Bronze é lida uma vez na
 
 
 
-## DA-10 — O que este trabalho entrega (03/09/2026)
+## DA-10 — O que este trabalho entrega (revisado em 17/09/2026)
 
-A CVM já publica o `Percentual_Vacancia` calculado, por imóvel. Então a contribuição não é
-calcular o indicador.
+Revisão após feedback do Prof. Luiz Sérgio (14/09/2026).
 
-**O que o trabalho entrega:** a arquitetura que integra sete anos de informes trimestrais
-dispersos; o tratamento de tipagem (campos numéricos vêm como texto) e de duplicidade por
-classe de cotas; os indicadores consolidados por segmento com ponderação por área, que não
-existem na fonte; e a série histórica montada para análise e projeção.
+A CVM já publica o Percentual_Vacancia calculado, por imóvel. E a arquitetura
+medalhão é padrão de mercado consolidado — não é algo a propor.
 
-Isso é coerente com a questão de pesquisa aprovada, que pergunta pela metodologia e
-arquitetura de pipeline necessárias para coletar, integrar e tratar os dados. O objeto é o
-pipeline, não o indicador.
+A contribuição central do trabalho é o **feature engineering**: as decisões de
+tratamento e as variáveis derivadas que transformam o dado bruto da CVM em base
+analítica utilizável. Em concreto:
+
+- derivação da ocupação a partir da vacância, dado que Percentual_Locado tem 97,7% de nulos
+- conversão de percentual para área absoluta em m², o que permite somar imóveis
+  de tamanhos diferentes
+- consolidação por fundo com ponderação por área — indicador inexistente na fonte
+- regras de qualidade e critérios de quarentena (faixa de vacância, plausibilidade de área)
+- deduplicação por CNPJ em razão do desdobramento Fundo/Classe
+- tratamento de tipagem: campos numéricos entregues como texto, em escala decimal
+
+O pipeline medalhão é o **meio** que viabiliza esse tratamento em escala e de forma
+reprodutível, não o fim do trabalho.
+
+Vocabulário: usar "implementar um pipeline" e não "propor uma arquitetura".
 
 
 
@@ -165,3 +175,24 @@ inviabilizando qualquer análise sobre ele. Como ocupação e vacância são
 complementares, nenhuma informação se perde — apenas a possibilidade de validação
 cruzada entre os dois campos, que é substituída por regras de faixa (vacância entre
 0 e 1) e de plausibilidade de área.
+
+
+
+## DA-15 — Incorporação de Ballou (2006) — 18/09/2026
+
+Anexado Ballou (2006), publicado na revista Produção. Não é a obra citada na V0
+(Ballou, 1993, livro), mas é verificável e cumpre função equivalente.
+
+Uso: definição de logística via CSCMP (Introdução), peso econômico da cadeia de
+suprimentos (1.1), e fundamentação da vacância financeira via a discussão sobre
+ótica de receita versus custo (2.1).
+
+Descartados: Assis et al. (2018) e Faria et al. (2018) — tratam de transporte, não
+de armazenagem; trazê-los afastaria o texto do tema central.
+
+CNT: o PDF anexado é a Agenda Institucional 2022, que NÃO contém a afirmação sobre
+redução de 25% dos custos citada na V0. O dado provavelmente está na Pesquisa CNT
+de Rodovias. Citação permanece fora até verificação.
+
+Restam 5 citações da V0 não recuperadas: CNT, Santiago (2019), Faria (2018),
+Lima et al. (2021), Gagliardi et al. (2018), Rajendran e Jayakrishnan (2022).

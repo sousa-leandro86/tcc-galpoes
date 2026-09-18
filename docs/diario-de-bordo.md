@@ -169,7 +169,7 @@ registros viram 100 fundos.
 
 Na Silver a deduplicação tem que ser por CNPJ, não por nome.
 
----
+
 
 ## 03/09/2026 — Revisão e particionamento
 
@@ -187,7 +187,7 @@ dispersos, tratar tipagem e duplicidade, consolidar por segmento com ponderaçã
 não existe na fonte — e montar a série histórica para análise e projeção. Isso é coerente com
 a questão de pesquisa, que pergunta pela arquitetura do pipeline, não pelo indicador.
 
----
+
 
 ## Pendências
 
@@ -213,3 +213,45 @@ com o mercado logístico.
 
 Encontrei outlier grave em Area: máximo de 191.766.900 m². Área mediana é 13.912 m².
 Provável erro de preenchimento na origem. Primeiro caso concreto para a quarentena.
+
+
+
+## 17/09/2026 — Feedback do professor orientador
+
+Prof. Luiz Sérgio devolveu a MonoLeandroV0 com 6 comentários e alterações rastreadas.
+
+Mensagem central, repetida 3 vezes (2 comentários + e-mail): a contribuição da
+pesquisa está no OE2, feature engineering. Os outros objetivos são auxiliares.
+Pediu uma seção detalhada sobre feature engineering no capítulo 2.
+
+Segundo ponto: cuidado com a palavra "arquitetura". Lakehouse medalhão já existe,
+não é algo a propor. Ele editou o texto trocando "propor a arquitetura" por
+"implementar um pipeline" em dois lugares.
+
+Terceiro: marcou com "???" os termos vagos — "metodologia técnica", "framework
+analítico", "dados brutos". Precisam de definição concreta.
+
+Boa notícia: o trabalho técnico que venho fazendo já é feature engineering
+(derivação de ocupação, conversão para área absoluta, ponderação por área, regras
+de quarentena, deduplicação por CNPJ). O ajuste é de ênfase no texto, não de rumo.
+
+
+
+## 17/09/2026 — Revisão da monografia após feedback
+
+Reescrevi a MonoLeandroV0 incorporando os 6 comentários e as alterações rastreadas
+do Prof. Luiz Sérgio.
+
+Principais mudanças: contribuição reposicionada no feature engineering (1.3
+reescrita); palavra "arquitetura" substituída por "pipeline" e "propor" por
+"implementar"; termos vagos definidos; seção 2.2 nova e detalhada sobre feature
+engineering, com 4 subseções.
+
+Problema que encontrei sozinho: o documento citava 8 obras que não constavam da
+lista de referências (Ballou, CSCMP, CNT, Santiago, Faria, Lima, Gagliardi,
+Rajendran), e 2 citações estavam por título e não por autor. As orientações da
+disciplina avaliam exatamente isso. Reescrevi usando só as 10 referências
+verificadas que tenho em PDF — 4 delas estavam na lista mas nunca eram citadas
+no texto, agora estão.
+
+Pendente: decidir se recupero Ballou e as demais, o que exige localizar as obras.

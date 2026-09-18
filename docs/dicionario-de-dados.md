@@ -3,7 +3,7 @@
 Estrutura dos dados usados no projeto. Vai como apêndice da monografia.
 Atualizado em 03/09/2026.
 
----
+
 
 ## Origem
 
@@ -21,7 +21,7 @@ Parâmetros de leitura, confirmados na prática:
 | Encoding | `latin-1` |
 | Separador decimal | `,` |
 
----
+
 
 ## Tabelas do informe mensal
 
@@ -36,7 +36,7 @@ Não contém área nem vacância. É um retrato financeiro, não físico.
 Campos de interesse em `ativo_passivo`: `Contas_Receber_Aluguel`, `Imoveis_Renda_Acabados`,
 `Imoveis_Renda_Construcao`, `Total_Investido`. Todos consolidados por fundo, não por imóvel.
 
----
+
 
 ## Tabelas do informe trimestral
 
@@ -54,7 +54,7 @@ Campos de interesse em `ativo_passivo`: `Contas_Receber_Aluguel`, `Imoveis_Renda
 | `terreno`, `aquisicao_terreno`, `alienacao_terreno` | Não utilizadas |
 | `imovel_desempenho` | Não utilizada |
 
----
+
 
 ## Chaves
 
@@ -64,7 +64,7 @@ juntar mensal com trimestral.
 
 Existe também `Versao` (tinyint), relevante quando um informe é reapresentado.
 
----
+
 
 ## Tabela `imovel` (trimestral)
 
@@ -90,7 +90,7 @@ Uma linha por imóvel, por trimestre.
 | `Percentual_Conclusao_Obras_Realizado` | nvarchar(4000) | Andamento de obra |
 | `Outras_Caracteristicas_Relevantes` | varchar(max) | Texto livre |
 
----
+
 
 ## Tabela `geral` (trimestral) — campos usados
 
@@ -127,7 +127,7 @@ os nomes divergem entre elas — vi "LOGINVEST FUNDO DE INVESTIMENTO IMOBILIÁRI
 "LOGINVEST FII INDUSTRIAL DE RESPONSABILIDADE LIMITADA" como registros separados. Por isso a
 deduplicação tem que ser por CNPJ.
 
----
+
 
 ## Tabela `complemento` (trimestral)
 
@@ -141,7 +141,7 @@ Serve como indicador antecedente: receita com vencimento próximo é risco de va
 **Indexadores.** `Percentual_Indexador_Receita_FII_IGPM`, `_IPCA`, `_INCC`, `_INPC`, com
 conjunto equivalente para `Valor_Total`. Mostra por qual índice os contratos são reajustados.
 
----
+
 
 ## Observações para o tratamento
 
@@ -162,7 +162,7 @@ Multiplicar por 100 para apresentação.
 Preenchimento: Percentual_Locado tem 97,7% de nulos na amostra de 2025 e não é
 utilizável. Os demais percentuais têm cerca de 6% de nulos.
 
----
+
 
 ## Campos derivados
 
