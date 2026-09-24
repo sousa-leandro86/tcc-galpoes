@@ -255,3 +255,24 @@ verificadas que tenho em PDF — 4 delas estavam na lista mas nunca eram citadas
 no texto, agora estão.
 
 Pendente: decidir se recupero Ballou e as demais, o que exige localizar as obras.
+
+
+## 24/09/2026
+Investigação dos extremos da coluna Area (imóveis logísticos, 2025).
+
+Caso Aurora (CNPJ 35.652.278/0001-28): o mesmo imóvel aparece com 19.176.692 m²
+no 1º trimestre e 191.766.920 m² nos três seguintes — exatamente 10 vezes maior,
+com um zero acrescentado. Galpão não cresce 10x em um trimestre. Mas mesmo o valor
+do 1º trimestre é absurdo (1.917 hectares). Erro de preenchimento na origem.
+
+Outros suspeitos: "80198_52371" (21,6 mi m², nome é código), "BTLP Cajamar"
+(7,5 mi m²), "IMOVEL GSA" (1,5 mi m², consistente nos 4 trimestres — pode ser
+real, mas não dá para confirmar).
+
+57 registros com área zero (3,5%).
+
+Ponto de quebra da distribuição: percentil 99 = 552.080 m²; percentil 99,9 =
+191.766.920 m². Salto de 347 vezes.
+
+Decidi NÃO corrigir os valores. Dividir por 10 seria supor o valor verdadeiro,
+que eu não conheço. Os registros vão para a quarentena.

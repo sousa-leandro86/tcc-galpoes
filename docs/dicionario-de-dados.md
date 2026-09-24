@@ -15,11 +15,7 @@ Período coletado: 2020 a 2026. Distribuição em ZIP anual com vários CSV dent
 
 Parâmetros de leitura, confirmados na prática:
 
-| Parâmetro | Valor |
-|---|---|
-| Separador de coluna | `;` |
-| Encoding | `latin-1` |
-| Separador decimal | `,` |
+| Separador decimal | `.` (ponto) — confirmado na leitura; o pandas converte automaticamente |
 
 
 
@@ -145,8 +141,9 @@ conjunto equivalente para `Valor_Total`. Mostra por qual índice os contratos s�
 
 ## Observações para o tratamento
 
-**Tipagem.** Quase todo campo numérico vem como `nvarchar`, inclusive `Area` e todos os
-percentuais. Conversão obrigatória na Bronze → Silver.
+**Tipagem.** O dicionário oficial marca os campos numéricos como nvarchar, mas esse é o
+tipo no banco de origem da CVM. No CSV os valores vêm com ponto decimal e o pandas
+os converte para float automaticamente. Verificar o dtype a cada leitura, sem assumir.
 
 **Decimal.** Valores usam vírgula como separador decimal. Precisa trocar por ponto antes de
 converter.

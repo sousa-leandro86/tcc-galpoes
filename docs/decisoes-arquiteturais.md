@@ -196,3 +196,21 @@ de Rodovias. Citação permanece fora até verificação.
 
 Restam 5 citações da V0 não recuperadas: CNT, Santiago (2019), Faria (2018),
 Lima et al. (2021), Gagliardi et al. (2018), Rajendran e Jayakrishnan (2022).
+
+
+
+## DA-16 — Regras de qualidade para a coluna Area
+
+Decisão: registros com Area = 0 ou Area > 1.000.000 m² vão para a quarentena.
+
+Regra de domínio: área zero não existe fisicamente.
+
+Regra de plausibilidade: o limite de 1.000.000 m² fica no vão entre o percentil 99
+da distribuição observada (552.080 m²) e o primeiro valor suspeito identificado
+(1.512.456 m²). O corte é justificado pelo próprio dado.
+
+Registros suspeitos não são corrigidos, apenas isolados. Corrigir exigiria supor o
+valor verdadeiro, o que introduziria informação não sustentada pela fonte.
+
+Pendente: regra de consistência temporal (variação brusca de área do mesmo imóvel
+entre trimestres), a implementar quando os sete anos estiverem integrados.
