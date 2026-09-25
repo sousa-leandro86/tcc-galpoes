@@ -277,8 +277,23 @@ Seleção de 17 colunas. Excluídas as colunas de construção e venda (pertence
 classes fora do escopo), Percentual_Locado (97,7% de vazios) e o texto livre de
 características.
 
+
+
 ## DA-22 — Gravação idempotente da Silver
 
 A pasta de destino é apagada antes de cada gravação. A gravação particionada
 acrescenta arquivos às partições existentes; sem a limpeza, reexecutar o notebook
 duplicaria os dados. A Silver é sempre reconstruível a partir da Bronze.
+
+
+
+## DA-23 — Agregações da Gold em SQL (DuckDB)
+
+As tabelas da Gold são produzidas por consultas SQL executadas no DuckDB sobre os
+arquivos Parquet da Silver, expostos como view com reconstrução da partição por ano.
+
+Motivo: o SQL é portável — a mesma consulta roda com alterações mínimas no Amazon
+Athena ou no endpoint SQL do Microsoft Fabric na fase de migração.
+
+Indicador central: vacancia_ponderada = SUM(Area_Vaga_m2) / SUM(Area), por
+trimestre. A média simples dos percentuais é calculada apenas para comparação.

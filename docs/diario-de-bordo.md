@@ -340,3 +340,19 @@ vaga + área locada reconstitui a área total (diferença máxima 5,8e-11, arred
 
 Quarentena gravada em dados/quarentena/imoveis.parquet, com 130 registros e o
 motivo de cada rejeição.
+
+
+
+Notebook 03 iniciado. View DuckDB sobre a Silver enxerga os 5.607 registros.
+
+A Gold de vacância por trimestre saiu com 35 linhas em vez de ~26. Causa: fundos
+informam Data_Referencia de formas diferentes — último dia útil (2022-12-30,
+2024-03-28) ou último dia do calendário (2022-12-31, 2024-03-31) —, além de datas
+fora do padrão (2023-01-31, 2025-09-01). Agrupar pela data exata parte o trimestre.
+
+Correção prevista: agrupar por ano + Trimestre. Antes, verificar se algum fundo
+tem duas datas no mesmo trimestre, o que causaria dupla contagem.
+
+Prévia: vacância ponderada em geral menor que a média simples (vacância concentrada
+em galpões pequenos); a partir do 4º trimestre de 2025 a área vaga sobe para mais
+de 850 mil m² e a ponderada supera a simples.
