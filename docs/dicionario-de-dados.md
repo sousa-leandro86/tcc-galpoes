@@ -169,5 +169,10 @@ Preencher conforme os indicadores forem criados na Silver e na Gold.
 |---|---|---|---|
 | | | | |
 
+| Taxa_Ocupacao | 1 − Percentual_Vacancia | Silver | Percentual_Locado inutilizável (97,7% vazio) |
+| Area_Vaga_m2 | Area × Percentual_Vacancia | Silver | Permite soma entre imóveis de tamanhos distintos |
+| Area_Locada_m2 | Area × Taxa_Ocupacao | Silver | Idem |
+| Trimestre | trimestre de Data_Referencia | Silver | Organização da série temporal |
+
 
 

@@ -276,3 +276,67 @@ Ponto de quebra da distribuição: percentil 99 = 552.080 m²; percentil 99,9 =
 
 Decidi NÃO corrigir os valores. Dividir por 10 seria supor o valor verdadeiro,
 que eu não conheço. Os registros vão para a quarentena.
+
+Constatei que o separador decimal no CSV é ponto, não vírgula — o pandas leu Area e
+os percentuais já como float64. O dicionário oficial marca esses campos como
+nvarchar, mas isso é o tipo no banco da CVM, não o formato do arquivo. Corrigi o
+dicionário de dados. Documentação descreve intenção; o dado descreve a realidade.
+
+Regras de quarentena aplicadas em 2025: 71 registros (4,3%) — 57 com área zero e
+14 acima de 1 milhão de m². Média da área caiu de 424.871 para 39.565 m² após o corte.
+
+Ponto em aberto: menor área aprovada é 14,54 m², tamanho de uma sala. Investigar depois.
+
+Iniciado o notebook 02. Processo de carga encapsulado em função, para reaproveitar
+nos sete anos sem duplicar código.
+
+Ao carregar os sete anos, deu KeyError: 'CNPJ_Fundo_Classe' em 2020. Diagnóstico:
+só o arquivo de 2020 usa CNPJ_Fundo e Nome_Fundo; de 2021 em diante o nome é
+CNPJ_Fundo_Classe. Minha hipótese inicial (mudança pela Resolução CVM 175, fim de
+2023) não bateu com o dado. Explicação mais provável: a CVM mantém atualizados os
+últimos cinco anos (2021–2026) e o arquivo de 2020 ficou fora dessa janela.
+Corrigido com renomeação de colunas dentro da função — ver DA-18.
+
+
+
+Carga dos sete anos concluída: 6.192 registros no total. Cada registro é um imóvel
+em um trimestre, não um imóvel — 2025 tem 1.640 registros, cerca de 410 imóveis.
+
+A verificação de duplicidade por fundo + data + nome do imóvel apontou 181 registros,
+mas são falsos positivos: um mesmo fundo cadastra vários terrenos com o nome genérico
+"Terreno", cada um com área diferente. Limitação da fonte: a CVM não fornece
+identificador único de imóvel; o nome é texto livre. Afeta a regra de consistência
+temporal por imóvel. Não afeta a série temporal por segmento e por fundo.
+
+Pontos a investigar: salto de 956 registros (2024) para 1.640 (2025); tipos de imóvel
+na coluna Classe (terreno não tem vacância); se o arquivo guarda versões antigas dos
+informes.
+
+
+
+Diagnóstico de versões: 1.008 informes (fundo + trimestre), nenhum com mais de uma
+versão no arquivo. A CVM entrega só a versão vigente. Duplicatas exatas: zero.
+A tabela imovel não precisa de deduplicação.
+
+Coluna Classe tem quatro valores: renda acabados (5.737), renda em construção (198),
+venda acabados (195), venda em construção (62). Estudo fica com renda acabados.
+
+
+
+Aplicado escopo e regras de qualidade nos sete anos: 5.737 registros no escopo,
+5.607 aprovados, 130 em quarentena (2,3%) — 106 por área zero, 23 por área acima
+de 1 milhão de m², 1 por vacância ausente.
+
+Achado: no notebook 01, 6,2% da vacância estava vazia. Após o filtro de escopo,
+restou 1 registro. A ausência era estrutural — concentrada em imóveis em construção
+e à venda, onde vacância não se aplica. Valida a DA-19 com dado. O mesmo para os
+terrenos: nenhum restou entre os aprovados.
+
+
+
+Silver concluída: 5.607 registros, 17 colunas, gravada em Parquet particionado por
+ano (ano=2020 a ano=2026). Verificação de leitura bateu. Teste de sanidade: área
+vaga + área locada reconstitui a área total (diferença máxima 5,8e-11, arredondamento).
+
+Quarentena gravada em dados/quarentena/imoveis.parquet, com 130 registros e o
+motivo de cada rejeição.

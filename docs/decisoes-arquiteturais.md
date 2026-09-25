@@ -214,3 +214,71 @@ valor verdadeiro, o que introduziria informação não sustentada pela fonte.
 
 Pendente: regra de consistência temporal (variação brusca de área do mesmo imóvel
 entre trimestres), a implementar quando os sete anos estiverem integrados.
+
+
+
+## DA-17 — Seleção de fundos por ano (evita viés de sobrevivência)
+
+Decisão: a lista de fundos logísticos é obtida da tabela geral de cada ano, e não
+de uma lista fixa extraída de um único ano.
+
+Motivo: fundos são criados, liquidados ou mudam de segmento ao longo do período.
+Usar a lista de 2025 para os anos anteriores excluiria fundos encerrados antes de
+2025 — que tendem a ser os de pior desempenho —, produzindo viés de sobrevivência
+e uma série histórica de vacância artificialmente favorável.
+
+
+
+## DA-18 — Harmonização de esquema entre anos
+
+Decisão: dentro da função de carga, as colunas CNPJ_Fundo e Nome_Fundo são
+renomeadas para CNPJ_Fundo_Classe e Nome_Fundo_Classe, em todos os anos.
+
+Motivo: o arquivo de 2020 usa nomes de coluna diferentes dos anos de 2021 a 2026.
+Padroniza-se para o nome atual porque é o esquema vigente da fonte. A renomeação é
+aplicada a todos os anos, sem condicional por ano, pois não produz efeito onde a
+coluna antiga não existe — a regra fica genérica e não depende de caso especial.
+
+
+
+## DA-19 — Recorte de escopo pela classe do imóvel
+
+Decisão: o estudo considera apenas registros com Classe = "Imóveis para renda
+acabados" (5.737 de 6.192 registros, 92,7%).
+
+Motivo: vacância pressupõe imóvel pronto e destinado a aluguel. Imóveis em
+construção ainda não podem ter inquilino; imóveis para venda não são alugados.
+
+Os registros excluídos por escopo não vão para a quarentena: são válidos, mas fora
+do objeto. A quarentena fica reservada a registros suspeitos, para que a taxa de
+rejeição reflita problemas reais de qualidade.
+
+## DA-20 — Regras de qualidade e registro de motivo
+
+Decisão: cinco regras aplicadas aos registros no escopo — área ausente, área zero,
+área acima de 1.000.000 m², vacância ausente, vacância fora da faixa 0 a 1. Cada
+registro rejeitado recebe na coluna motivo_quarentena o código de todas as regras
+que violou.
+
+Motivo: vacância ausente impede o registro de contribuir para o indicador central;
+mantê-lo apenas na soma das áreas tornaria a ponderação inconsistente. O motivo
+registrado torna a quarentena auditável e permite reportar a rejeição por causa.
+
+
+
+## DA-21 — Variáveis derivadas na Silver
+
+Taxa_Ocupacao = 1 − Percentual_Vacancia (complementaridade).
+Area_Vaga_m2 = Area × Percentual_Vacancia; Area_Locada_m2 = Area × Taxa_Ocupacao
+(conversão de relativo em absoluto, para permitir soma entre imóveis).
+Trimestre extraído de Data_Referencia.
+
+Seleção de 17 colunas. Excluídas as colunas de construção e venda (pertencem a
+classes fora do escopo), Percentual_Locado (97,7% de vazios) e o texto livre de
+características.
+
+## DA-22 — Gravação idempotente da Silver
+
+A pasta de destino é apagada antes de cada gravação. A gravação particionada
+acrescenta arquivos às partições existentes; sem a limpeza, reexecutar o notebook
+duplicaria os dados. A Silver é sempre reconstruível a partir da Bronze.
