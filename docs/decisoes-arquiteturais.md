@@ -297,3 +297,19 @@ Athena ou no endpoint SQL do Microsoft Fabric na fase de migração.
 
 Indicador central: vacancia_ponderada = SUM(Area_Vaga_m2) / SUM(Area), por
 trimestre. A média simples dos percentuais é calculada apenas para comparação.
+
+
+## DA-24 — Alinhamento temporal na Gold
+
+Decisão: as agregações da Gold agrupam por ano e trimestre, e não pela data de
+referência exata. Quando um fundo apresenta mais de uma data de referência no
+mesmo trimestre, apenas os registros da data mais recente são considerados.
+
+Motivo: fundos informam a data de referência de formas diferentes — último dia
+útil ou último dia do calendário (2022-12-30 e 2022-12-31, por exemplo) —, o que
+partia o mesmo trimestre em várias linhas (35 em vez de 26) e criava um falso
+período (2025-09-01, com 33% de vacância). A verificação identificou um fundo
+(13.012.312/0001-67) com duas datas no 1º trimestre de 2023 (31/01 e 31/03).
+Como o informe descreve a posição no fechamento do período, a data mais recente
+substitui a anterior; sem essa regra, o fundo seria contado duas vezes no
+trimestre. O descarte ocorre só na agregação; a Silver permanece inalterada.

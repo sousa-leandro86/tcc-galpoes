@@ -179,4 +179,46 @@ Preencher conforme os indicadores forem criados na Silver e na Gold.
 | vacancia_ponderada | SUM(Area_Vaga_m2) / SUM(Area) | Gold | Vacância do conjunto, com peso proporcional à área de cada imóvel |
 
 
+Verificação de datas por fundo e trimestre: 1 caso — fundo 13.012.312/0001-67,
+1º trimestre de 2023, datas 31/01 e 31/03, 1 registro em cada. Regra aplicada:
+manter a data mais recente de cada fundo no trimestre (DA-24). Gold refeita com
+agrupamento por ano e trimestre.
 
+
+## gold/vacancia_segmento_trimestral.parquet
+
+Granularidade: uma linha por trimestre, segmento logístico inteiro.
+Origem: silver/imoveis, notebook 03 (SQL no DuckDB). Alinhamento temporal: DA-24.
+
+| Campo                  | Tipo            | Descrição                                              | Regra de cálculo                      |
+|------------------------|-----------------|--------------------------------------------------------|---------------------------------------|
+| ano                    | inteiro         | Ano de referência                                      | Partição ano=AAAA da Silver           |
+| Trimestre              | inteiro (1 a 4) | Trimestre do ano                                       | Vem da Silver                         |
+| periodo                | texto           | Rótulo do período (ex.: 2023-T1)                       | ano + "-T" + Trimestre                |
+| qtd_fundos             | inteiro         | Fundos com imóveis aprovados no trimestre              | COUNT(DISTINCT CNPJ_Fundo_Classe)     |
+| qtd_registros          | inteiro         | Registros de imóvel usados no trimestre                | COUNT(*) após filtro da data recente  |
+| area_total_m2          | decimal         | Área total dos imóveis, em m²                          | SUM(Area)                             |
+| area_vaga_m2           | decimal         | Área vaga total, em m²                                 | SUM(Area_Vaga_m2)                     |
+| vacancia_ponderada     | decimal (0 a 1) | Vacância ponderada pela área; indicador central        | SUM(Area_Vaga_m2) / SUM(Area)         |
+| vacancia_media_simples | decimal (0 a 1) | Média simples da vacância dos imóveis; só comparação   | AVG(Percentual_Vacancia)              |
+
+| Campo          | Tipo            | Descrição                          | Regra de cálculo                                      |
+|----------------|-----------------|------------------------------------|-------------------------------------------------------|
+| Trimestre      | inteiro (1 a 4) | Trimestre de referência do informe | Extraído de Data_Referencia (pd.to_datetime)          |
+| Taxa_Ocupacao  | decimal (0 a 1) | Fração da área ocupada             | 1 − Percentual_Vacancia (DA-14)                       |
+| Area_Vaga_m2   | decimal         | Área vaga do imóvel, em m²         | Area × Percentual_Vacancia                            |
+| Area_Locada_m2 | decimal         | Área ocupada do imóvel, em m²      | Area × Taxa_Ocupacao                                  |
+
+Dicionário de dados (campos derivados da Silver, pendentes desde 24/09):
+| Campo          | Tipo            | Descrição                          | Regra de cálculo                                      |
+|----------------|-----------------|------------------------------------|-------------------------------------------------------|
+| Trimestre      | inteiro (1 a 4) | Trimestre de referência do informe | Extraído de Data_Referencia (pd.to_datetime)          |
+| Taxa_Ocupacao  | decimal (0 a 1) | Fração da área ocupada             | 1 − Percentual_Vacancia (DA-14)                       |
+| Area_Vaga_m2   | decimal         | Área vaga do imóvel, em m²         | Area × Percentual_Vacancia                            |
+| Area_Locada_m2 | decimal         | Área ocupada do imóvel, em m²      | Area × Taxa_Ocupacao                                  |
+
+Dicionário de dados (correção do texto sobre separador decimal):
+Nos CSVs da CVM, o separador decimal é ponto e o pandas lê os campos numéricos
+diretamente como float64. O tipo nvarchar do dicionário oficial refere-se ao
+armazenamento no banco da CVM, não ao arquivo publicado. Percentuais estão em
+escala decimal (0 a 1).

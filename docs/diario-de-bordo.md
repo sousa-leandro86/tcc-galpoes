@@ -356,3 +356,16 @@ tem duas datas no mesmo trimestre, o que causaria dupla contagem.
 Prévia: vacância ponderada em geral menor que a média simples (vacância concentrada
 em galpões pequenos); a partir do 4º trimestre de 2025 a área vaga sobe para mais
 de 850 mil m² e a ponderada supera a simples.
+
+
+Verificação de datas por fundo e trimestre: 1 caso — fundo 13.012.312/0001-67,
+1º trimestre de 2023, datas 31/01 e 31/03, 1 registro em cada. Regra aplicada:
+manter a data mais recente de cada fundo no trimestre (DA-24). Gold refeita com
+agrupamento por ano e trimestre: 26 trimestres (2020-T1 a 2026-T2), 5.606
+registros (5.607 da Silver − 1). Arquivo gold/vacancia_segmento_trimestral.parquet
+sobrescrito.
+
+Observações para a EDA: vacância ponderada abaixo da simples até 2025-T3; em
+2025-T4 a área vaga triplica (277 mil → 849 mil m²) com área total estável; em
+2026 caem registros (378 → 275 → 201) e área total (15,4 → 12,8 mi m²) — checar
+se 2026-T2 está incompleto ou se houve mudança na composição de fundos.
