@@ -221,4 +221,21 @@ Dicionário de dados (correção do texto sobre separador decimal):
 Nos CSVs da CVM, o separador decimal é ponto e o pandas lê os campos numéricos
 diretamente como float64. O tipo nvarchar do dicionário oficial refere-se ao
 armazenamento no banco da CVM, não ao arquivo publicado. Percentuais estão em
-escala decimal (0 a 1).
+escala decimal (0 a 1
+
+
+## gold/vacancia_fundo_trimestral.parquet
+
+Granularidade: uma linha por fundo por trimestre.
+Origem: view imoveis_trimestre (Silver com a regra da DA-24), notebook 03.
+
+| Campo              | Tipo            | Descrição                                        | Regra de cálculo              |
+|--------------------|-----------------|--------------------------------------------------|-------------------------------|
+| CNPJ_Fundo_Classe  | texto           | CNPJ do fundo (identificador, DA-08 e DA-26)     | Vem da Silver                 |
+| ano                | inteiro         | Ano de referência                                | Partição ano=AAAA da Silver   |
+| Trimestre          | inteiro (1 a 4) | Trimestre do ano                                 | Vem da Silver                 |
+| periodo            | texto           | Rótulo do período (ex.: 2023-T1)                 | ano + "-T" + Trimestre        |
+| qtd_registros      | inteiro         | Imóveis do fundo no trimestre                    | COUNT(*)                      |
+| area_total_m2      | decimal         | Área total dos imóveis do fundo, em m²           | SUM(Area)                     |
+| area_vaga_m2       | decimal         | Área vaga dos imóveis do fundo, em m²            | SUM(Area_Vaga_m2)             |
+| vacancia_ponderada | decimal (0 a 1) | Vacância do fundo ponderada pela área            | SUM(Area_Vaga_m2) / SUM(Area) |

@@ -369,3 +369,16 @@ Observações para a EDA: vacância ponderada abaixo da simples até 2025-T3; em
 2025-T4 a área vaga triplica (277 mil → 849 mil m²) com área total estável; em
 2026 caem registros (378 → 275 → 201) e área total (15,4 → 12,8 mi m²) — checar
 se 2026-T2 está incompleto ou se houve mudança na composição de fundos.
+
+
+Inspeção do conflito de datas (fundo 13.012.312/0001-67, 2023 T1): os dois
+registros são o mesmo imóvel (Pilkington, 2.230 m², vacância 0, Versao 1), com
+datas 31/01 e 31/03. Confirma a regra da DA-24: o descarte da data anterior
+evita dupla contagem e não remove nenhum imóvel real.
+
+
+Criada a view imoveis_trimestre com a regra da DA-24 (DA-25): 5.606 registros,
+igual à Gold 1. Gold 2 gerada a partir dela (vacância por fundo por trimestre,
+gold/vacancia_fundo_trimestral.parquet): 892 linhas (= soma de qtd_fundos da
+Gold 1), 5.606 registros, área vaga total idêntica à da Gold 1. Fundo
+identificado só por CNPJ (DA-26).

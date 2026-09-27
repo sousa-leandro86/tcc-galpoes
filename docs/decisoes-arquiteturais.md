@@ -313,3 +313,24 @@ período (2025-09-01, com 33% de vacância). A verificação identificou um fund
 Como o informe descreve a posição no fechamento do período, a data mais recente
 substitui a anterior; sem essa regra, o fundo seria contado duas vezes no
 trimestre. O descarte ocorre só na agregação; a Silver permanece inalterada.
+
+
+## DA-25 — Regra de alinhamento temporal centralizada em view
+
+Decisão: a regra da DA-24 (data mais recente de cada fundo no trimestre) foi
+transformada na view imoveis_trimestre, criada no notebook 03 a partir da view
+silver_imoveis. As tabelas Gold por fundo e seguintes leem dessa view.
+
+Motivo: evitar que a mesma regra fique escrita em várias consultas; se ela
+mudar, a alteração acontece em um único ponto. A view foi validada contra a
+Gold 1: 5.606 registros nos dois casos.
+
+
+## DA-26 — Identificação do fundo na Gold por CNPJ
+
+Decisão: a Gold por fundo identifica cada fundo apenas pelo CNPJ_Fundo_Classe,
+sem o nome.
+
+Motivo: o nome não está na Silver (fica na tabela geral da Bronze), e trazê-lo
+exigiria alterar o notebook 02. O CNPJ é o identificador estável adotado desde
+a DA-08; nomes podem ser consultados pontualmente na análise, quando necessário.
