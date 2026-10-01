@@ -468,3 +468,19 @@ projeção fica abaixo do último valor observado (7,59%) porque a janela ainda
 inclui o 2025-T3, anterior à ruptura. Gravada em
 gold/projecao_vacancia_trimestral.parquet (escala 0 a 1). Figura 5 gerada
 (série observada, média móvel, projeção e faixa de erro).
+
+
+
+## 01/10/2026 — Auditoria da monografia e nuvem
+
+Auditoria da MonoLeandroV2 contra o modelo PECE. Capítulos 1 e 2 completos,
+mas com afirmações anteriores à execução que os dados desmentiram (campos como
+texto, deduplicação de registros, dados de contratos). Capítulos 3 e 4 ausentes.
+Referências com erros conferidos nos PDFs: Hayta (não Haytad), Nguyen com
+terceiro autor (Tran), Sousa e Oliveira nº 9779, paginação de Santos e Baptista.
+Ribeiro et al. (2022) declaram que sua base não exigiu limpeza; não sustentam
+o argumento sobre preparação dos dados.
+
+Nuvem: iniciados testes na AWS. Corte em 03/10; sem ambiente funcional até lá,
+a migração entra na monografia como etapa planejada. DA-11 será fechada
+após os testes.
