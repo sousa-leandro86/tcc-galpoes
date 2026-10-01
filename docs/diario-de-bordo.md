@@ -382,3 +382,8 @@ igual à Gold 1. Gold 2 gerada a partir dela (vacância por fundo por trimestre,
 gold/vacancia_fundo_trimestral.parquet): 892 linhas (= soma de qtd_fundos da
 Gold 1), 5.606 registros, área vaga total idêntica à da Gold 1. Fundo
 identificado só por CNPJ (DA-26).
+
+
+Decidido não criar a Gold 3 (evolução do mercado): as colunas já existem na
+Gold 1 (DA-27). Camada Gold fechada com duas tabelas. Célula de conclusões
+adicionada ao fim do notebook 03.

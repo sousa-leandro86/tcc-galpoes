@@ -334,3 +334,14 @@ sem o nome.
 Motivo: o nome não está na Silver (fica na tabela geral da Bronze), e trazê-lo
 exigiria alterar o notebook 02. O CNPJ é o identificador estável adotado desde
 a DA-08; nomes podem ser consultados pontualmente na análise, quando necessário.
+
+
+## DA-27 — Gold de evolução do mercado não criada
+
+Decisão: a tabela Gold prevista para a evolução do mercado (quantidade de
+fundos, registros e área total por trimestre) não foi criada como arquivo
+separado.
+
+Motivo: essas três medidas já estão na Gold do segmento
+(vacancia_segmento_trimestral: qtd_fundos, qtd_registros, area_total_m2).
+Uma tabela à parte duplicaria dados e documentação sem acrescentar informação.
