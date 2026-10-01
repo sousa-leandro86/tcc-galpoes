@@ -176,6 +176,12 @@ complementares, nenhuma informação se perde — apenas a possibilidade de vali
 cruzada entre os dois campos, que é substituída por regras de faixa (vacância entre
 0 e 1) e de plausibilidade de área.
 
+Complemento (01/10/2026): o Anexo 39-II da Instrução CVM nº 571/2015 prevê a coluna
+"% locado" apenas para imóveis para renda em construção (item 1.1.2.2.1); para imóveis
+para renda acabados, o formulário prevê "% de vacância" (item 1.1.2.1.1). A alta
+proporção de nulos em Percentual_Locado é compatível com o desenho do formulário,
+e não com falha de preenchimento.
+
 
 
 ## DA-15 — Incorporação de Ballou (2006) — 18/09/2026
@@ -392,7 +398,7 @@ de registros, não de imóveis distintos, porque a CVM não fornece
 identificador único de imóvel.
 
 
-## DA-13 — Método de projeção da série
+## DA-31 — Método de projeção da série
 
 Decisão: a projeção da vacância ponderada usa média móvel de 4 trimestres,
 escolhida entre três métodos simples (ingênuo, média móvel de 4 trimestres e
@@ -407,3 +413,14 @@ linear 3,73, ingênuo 3,75; a diferença entre eles (0,18 ponto) é pequena, e o
 erro de todos é dominado pela ruptura. A média móvel foi preferida também por
 não prolongar a tendência de queda aprendida até 2025-T2, contrariada pelos
 dados seguintes. A projeção tem caráter indicativo.
+
+
+## DA-31 — Premissa de base física para Percentual_Vacancia
+
+Decisão: Percentual_Vacancia é interpretado como proporção da área do imóvel,
+e Area_Vaga_m2 = Area × Percentual_Vacancia é tratada como estimativa sob essa premissa.
+
+Motivo: nem o Anexo 39-II da Instrução CVM nº 571/2015 nem o dicionário de dados da
+CVM especificam se a vacância é apurada sobre a área ou sobre a receita potencial
+(a descrição do campo no dicionário oficial está vazia). A conversão para m² exige
+base física. A premissa é declarada como limitação na monografia.

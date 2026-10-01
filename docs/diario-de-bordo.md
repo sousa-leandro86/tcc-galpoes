@@ -484,3 +484,13 @@ o argumento sobre preparação dos dados.
 Nuvem: iniciados testes na AWS. Corte em 03/10; sem ambiente funcional até lá,
 a migração entra na monografia como etapa planejada. DA-11 será fechada
 após os testes.
+
+
+## 01/10/2026 — Anexo 39-II da Instrução CVM 571/2015
+
+Localizei o normativo que define o informe trimestral. Três achados: o formulário
+não diz se a vacância é física ou financeira (vira premissa, DA-31); "% locado" só
+existe para imóveis em construção, o que explica os 97,7% de nulos (complemento da
+DA-14); o prazo de entrega é de 45 dias após o trimestre, o que ajuda a explicar
+2026 com só dois trimestres. Capítulo 2 revisado: retiradas as afirmações não
+sustentadas sobre Ribeiro et al. (2022), incluídos os métodos de projeção na 2.4.
