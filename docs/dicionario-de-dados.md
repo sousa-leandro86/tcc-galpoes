@@ -239,3 +239,22 @@ Origem: view imoveis_trimestre (Silver com a regra da DA-24), notebook 03.
 | area_total_m2      | decimal         | Área total dos imóveis do fundo, em m²           | SUM(Area)                     |
 | area_vaga_m2       | decimal         | Área vaga dos imóveis do fundo, em m²            | SUM(Area_Vaga_m2)             |
 | vacancia_ponderada | decimal (0 a 1) | Vacância do fundo ponderada pela área            | SUM(Area_Vaga_m2) / SUM(Area) |
+
+
+## gold/projecao_vacancia_trimestral.parquet
+
+Granularidade: uma linha por trimestre projetado (horizonte de 4 trimestres).
+Origem: gold/vacancia_segmento_trimestral, notebook 05. Método: DA-13.
+
+| Campo              | Tipo            | Descrição                                     | Regra de cálculo                          |
+|--------------------|-----------------|-----------------------------------------------|-------------------------------------------|
+| ano                | inteiro         | Ano do trimestre projetado                    | Sequência a partir do último observado    |
+| Trimestre          | inteiro (1 a 4) | Trimestre projetado                           | Sequência a partir do último observado    |
+| periodo            | texto           | Rótulo do período (ex.: 2026-T3)              | ano + "-T" + Trimestre                    |
+| vacancia_projetada | decimal (0 a 1) | Vacância ponderada projetada                  | Média dos 4 últimos trimestres observados |
+| limite_inferior    | decimal (0 a 1) | Limite inferior da faixa de erro              | vacancia_projetada − MAE, mínimo 0        |
+| limite_superior    | decimal (0 a 1) | Limite superior da faixa de erro              | vacancia_projetada + MAE                  |
+| metodo             | texto           | Método de projeção utilizado                  | Fixo: "Média móvel de 4 trimestres"       |
+
+Observação: a faixa de erro é o erro absoluto médio observado no teste
+(holdout dos 4 últimos trimestres), não um intervalo de confiança estatístico.

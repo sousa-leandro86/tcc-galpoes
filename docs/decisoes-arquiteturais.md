@@ -390,3 +390,20 @@ desprezível nos percentuais; reaplicar a regra aqui duplicaria a lógica
 centralizada na view imoveis_trimestre (DA-25). Limitação: os percentuais são
 de registros, não de imóveis distintos, porque a CVM não fornece
 identificador único de imóvel.
+
+
+## DA-13 — Método de projeção da série
+
+Decisão: a projeção da vacância ponderada usa média móvel de 4 trimestres,
+escolhida entre três métodos simples (ingênuo, média móvel de 4 trimestres e
+tendência linear) por holdout temporal: treino nos 22 primeiros trimestres
+(2020-T1 a 2025-T2), teste nos 4 últimos (2025-T3 a 2026-T2), critério MAE.
+A projeção final é recalculada com a série inteira, para horizonte de 4
+trimestres, e apresentada com faixa de ± MAE do teste.
+
+Motivo: com 26 pontos e uma ruptura de composição em 2025-T4, métodos
+complexos não se justificam. MAE no teste: média móvel 3,57 pontos, tendência
+linear 3,73, ingênuo 3,75; a diferença entre eles (0,18 ponto) é pequena, e o
+erro de todos é dominado pela ruptura. A média móvel foi preferida também por
+não prolongar a tendência de queda aprendida até 2025-T2, contrariada pelos
+dados seguintes. A projeção tem caráter indicativo.

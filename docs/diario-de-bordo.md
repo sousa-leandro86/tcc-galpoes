@@ -450,3 +450,21 @@ anos. Faixa 100% (vago) em formato de U: 4,5% (2020), 3,6% (2021), 1,5%
 (2022), 1,4% (2023), 2,1% (2024), 2,6% (2025), 4,2% (2026). Faixa 10% a 50%
 entre 4,3% e 7,2%, sem tendência. A tabela de percentuais vai para a
 monografia junto com a figura.
+
+
+Notebook 05 criado. Série de 26 trimestres (2020-T1 a 2026-T2). Comparação de
+métodos com holdout temporal dos 4 últimos trimestres (DA-13): MAE média móvel
+3,57 pontos, tendência linear 3,73, ingênuo 3,75; inclinação da reta no treino
+de −0,121 ponto por trimestre. No 2025-T3 os três erram menos de 0,3 ponto; de
+2025-T4 em diante, todos projetam até cerca de 2% contra reais de 5,52% a
+7,59%. Métodos simples acompanham o regime estável e não antecipam a ruptura
+de composição identificada na EDA.
+
+
+Projeção final (DA-13) recalculada com a série inteira: média dos 4 últimos
+trimestres = (1,81 + 5,52 + 7,00 + 7,59) ÷ 4 = 5,48%, repetida de 2026-T3 a
+2027-T2. Faixa de erro de ± 3,57 pontos (MAE do teste): 1,91% a 9,05%. A
+projeção fica abaixo do último valor observado (7,59%) porque a janela ainda
+inclui o 2025-T3, anterior à ruptura. Gravada em
+gold/projecao_vacancia_trimestral.parquet (escala 0 a 1). Figura 5 gerada
+(série observada, média móvel, projeção e faixa de erro).
