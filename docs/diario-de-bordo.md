@@ -387,3 +387,66 @@ identificado só por CNPJ (DA-26).
 Decidido não criar a Gold 3 (evolução do mercado): as colunas já existem na
 Gold 1 (DA-27). Camada Gold fechada com duas tabelas. Célula de conclusões
 adicionada ao fim do notebook 03.
+
+
+Notebook 04 criado (análise exploratória). Setup lê as duas tabelas da Gold:
+26 e 892 linhas, conferidas. Figura 1 (vacância ponderada × simples) gerada.
+Fases observadas: 2020–2021 simples bem acima da ponderada; 2022–2023 linhas
+próximas (em 2022-T1 a ponderada fica 0,15 ponto acima da simples, exceção à
+anotação do notebook 03); 2024-T3 a 2025-T3 ponderada cai para cerca de 2% e
+simples se mantém entre 3% e 5%; a partir de 2025-T4 a ponderada sobe e passa
+a simples, chegando a 7,6% em 2026-T2. Eixo Y ajustado para começar em zero
+(DA-28).
+
+
+Figura 1 refeita com eixo Y a partir de zero. Figura 2 (evolução da amostra:
+fundos, imóveis e área total) gerada em três painéis com eixo X compartilhado.
+Observações: (1) salto simultâneo em 2025-T1 nos três painéis (35 → 48 fundos,
+212 → 338 imóveis, 8,5 → 12,2 mi m²); hipótese a verificar: fundos existentes
+reclassificados como Logística em 2025, entrando pela seleção anual (DA-17);
+(2) 2022-T1: imóveis 158 → 225 com fundos estáveis (32 → 31); (3) 2026-T1 →
+2026-T2: imóveis 275 → 201 com área estável (12,78 → 12,81 mi m²) e fundos
+48 → 49, o que enfraquece a hipótese de 2026-T2 incompleto por falta de
+entrega. Na queda da ponderada em 2025-T1 com área total crescendo, hipótese
+de efeito de composição: fundos novos com imóveis grandes e bem ocupados.
+
+
+Investigação do salto de 2025-T4 (Gold 2): aumento do segmento de 570.968 m²
+de área vaga, validado pela soma das variações por fundo. Os cinco maiores
+aumentos somam 574.578 m² (100,6% do total); os demais fundos reduziram, em
+conjunto, cerca de 3.610 m². O fundo 63.574.240/0001-10, ausente no 2025-T3,
+responde sozinho por 338.478 m² (59,3%). Entre os fundos presentes nos dois
+trimestres, destaque para 16.671.412/0001-93 (de 6.427 para 128.176 m² vagos).
+O 35.652.278/0001-28 (fundo do imóvel Aurora em quarentena) aparece com 67.420
+m² de aumento, vindos dos seus demais imóveis.
+
+
+Decomposição do salto de 2025-T4 (DA-29): entraram 4 fundos (338.478 m²,
+59,3%), saíram 4 (0 m²), permaneceram 51 (232.491 m², 40,7%). Toda a parcela
+de entrada vem do 63.574.240/0001-10: um imóvel de 338.477,53 m², 100% vago em
+2025-T4, 2026-T1 e 2026-T2 — 37,8% da área vaga do segmento em 2026-T1 e
+34,8% em 2026-T2. Histórico 2025–2026: 16.671.412/0001-93 sobe para 50,2% em
+2025-T4 e volta a 0% em 2026-T2 (área total cai de 255.512 para 192.350 m² em
+2026-T1 com os mesmos 5 imóveis, motivo não identificável nos dados);
+35.652.278/0001-28 vai de 0% para 14,6% e se mantém. Sem esses três, a área
+vaga dos demais fundos sobe de 314.479 m² (2025-T4) para 566.596 m² (2026-T2).
+Prazo: EDA será encerrada com as figuras 3 e 4.
+
+
+Imóvel do fundo 63.574.240/0001-10 identificado na Silver: Terminal Multimodal
+de Camaçari (Polo Petroquímico de Camaçari), 338.477,53 m², vacância 100% em
+2025-12-31, 2026-03-31 e 2026-06-30. Figura 3 gerada (área vaga 2024-T1 a
+2026-T2 em barras empilhadas: demais fundos × Terminal de Camaçari); legenda
+ajustada com o nome do imóvel. Observação para a Discussão: o segmento
+Logística reúne ativos heterogêneos (terminal multimodal × condomínio de
+galpões), conforme classificação declarada pelo próprio fundo.
+
+
+Figura 3 finalizada com legenda nomeando o Terminal Multimodal de Camaçari.
+Figuras apagadas por engano e regeneradas com Run All (reprodutibilidade).
+Figura 4 gerada (distribuição da vacância por faixas, por ano, DA-30): 5.607
+registros, nenhum sem faixa. Faixa 0% (locado) entre 85,2% e 90,0% em todos os
+anos. Faixa 100% (vago) em formato de U: 4,5% (2020), 3,6% (2021), 1,5%
+(2022), 1,4% (2023), 2,1% (2024), 2,6% (2025), 4,2% (2026). Faixa 10% a 50%
+entre 4,3% e 7,2%, sem tendência. A tabela de percentuais vai para a
+monografia junto com a figura.

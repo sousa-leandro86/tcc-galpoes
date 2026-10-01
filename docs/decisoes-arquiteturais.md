@@ -345,3 +345,48 @@ separado.
 Motivo: essas três medidas já estão na Gold do segmento
 (vacancia_segmento_trimestral: qtd_fundos, qtd_registros, area_total_m2).
 Uma tabela à parte duplicaria dados e documentação sem acrescentar informação.
+
+
+## DA-28 — Padrão das figuras da análise
+
+Decisão: as figuras são salvas em monografia/figuras/ como PNG a 300 dpi, com
+nome no formato figNN_descricao.png, sem título dentro da imagem e com eixo Y
+iniciando em zero. Conversões de escala (vacância em %, área em milhões de m²)
+são feitas apenas no gráfico; a Gold mantém vacância na escala 0 a 1 e área em m².
+
+Motivo: o título da figura fica no texto da monografia, conforme a ABNT, e não
+deve aparecer duplicado. O eixo a partir de zero evita exagero visual das
+oscilações. Manter uma única escala nas camadas evita conversão dupla no
+consumo (por exemplo, o formato de porcentagem do Power BI multiplicaria por
+100 um valor já convertido).
+
+
+## DA-29 — Decomposição da variação da área vaga por presença na amostra
+
+Decisão: variações relevantes da área vaga do segmento entre dois trimestres
+são decompostas em três parcelas, conforme a presença de cada fundo: fundos
+que entraram, fundos que saíram e fundos presentes nos dois trimestres. Fundo
+ausente em um trimestre conta como área vaga zero naquele trimestre.
+
+Motivo: como a seleção de fundos é anual (DA-17), a composição da amostra muda
+ao longo do tempo, e a quantidade de fundos pode permanecer igual mesmo com
+entradas e saídas (2025-T3 e 2025-T4: 55 fundos, com 4 entradas e 4 saídas).
+A decomposição separa mudança de amostra de variação real de ocupação. As três
+parcelas somam exatamente a variação do segmento na Gold do segmento.
+
+
+## DA-30 — Distribuição da vacância por faixas no nível do imóvel
+
+Decisão: a distribuição da vacância é analisada na Silver (nível imóvel ×
+trimestre), classificando cada registro em cinco faixas: 0% (locado), até 10%,
+10% a 50%, 50% a 100% e 100% (vago). Os percentuais são calculados por ano
+sobre o número de registros. A regra da DA-24 não é reaplicada nesta análise.
+
+Motivo: um histograma simples seria dominado pela concentração em zero; faixas
+com significado de negócio tornam a cauda legível. A Gold não serve porque é
+agregada por trimestre e por fundo. A única duplicidade temporal da Silver
+(Pilkington, 2023-T1, vacância 0) representa 1 registro em 5.607, efeito
+desprezível nos percentuais; reaplicar a regra aqui duplicaria a lógica
+centralizada na view imoveis_trimestre (DA-25). Limitação: os percentuais são
+de registros, não de imóveis distintos, porque a CVM não fornece
+identificador único de imóvel.
