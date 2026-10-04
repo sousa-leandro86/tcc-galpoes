@@ -258,3 +258,18 @@ Origem: gold/vacancia_segmento_trimestral, notebook 05. Método: DA-13.
 
 Observação: a faixa de erro é o erro absoluto médio observado no teste
 (holdout dos 4 últimos trimestres), não um intervalo de confiança estatístico.
+
+
+## Tabelas no catálogo do Athena (banco tcc_galpoes, AwsDataCatalog, us-east-1)
+
+| Tabela no Athena                   | Local no S3                                  | Origem local                                   |
+|------------------------------------|----------------------------------------------|------------------------------------------------|
+| silver_imoveis (partição: ano)     | silver/imoveis/                              | dados/silver/imoveis/                          |
+| gold_vacancia_segmento_trimestral  | gold/vacancia_segmento_trimestral/           | dados/gold/vacancia_segmento_trimestral.parquet|
+| gold_vacancia_fundo_trimestral     | gold/vacancia_fundo_trimestral/              | dados/gold/vacancia_fundo_trimestral.parquet   |
+| gold_projecao_vacancia_trimestral  | gold/projecao_vacancia_trimestral/           | dados/gold/projecao_vacancia_trimestral.parquet|
+| quarentena_imoveis                 | quarentena/imoveis/                          | dados/quarentena/imoveis.parquet               |
+
+Observações: no Athena, os nomes de colunas aparecem em minúsculas. A tabela
+quarentena_imoveis declara só as colunas de auditoria (cnpj_fundo_classe,
+nome_imovel, classe, area, percentual_vacancia, ano, motivo_quarentena).

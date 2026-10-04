@@ -424,3 +424,36 @@ Motivo: nem o Anexo 39-II da Instrução CVM nº 571/2015 nem o dicionário de d
 CVM especificam se a vacância é apurada sobre a área ou sobre a receita potencial
 (a descrição do campo no dicionário oficial está vazia). A conversão para m² exige
 base física. A premissa é declarada como limitação na monografia.
+
+
+## DA-11 — Plataforma de nuvem: AWS (AWS Academy Learner Lab)
+
+Decisão: a migração usa o AWS Academy Learner Lab, com S3 para armazenamento
+das camadas (mesma estrutura de pastas do ambiente local), Glue Data Catalog
+para o registro das tabelas e Athena para as consultas SQL. Cada tabela Gold
+fica em uma pasta própria no S3. A Silver e a Gold são enviadas já processadas;
+o ambiente local permanece como fonte de verdade.
+
+Motivo: acesso disponível sem depender de autorização para uso do tenant
+corporativo exigido pelo Microsoft Fabric; custo coberto pelos créditos do
+ambiente acadêmico; o SQL do Athena é próximo ao do DuckDB usado na Gold
+(DA-23). Limitações: sessões com tempo limitado, credenciais temporárias e
+ambiente vinculado ao curso, o que exige registrar evidências (prints) da
+migração.
+
+
+## DA-31 — Registro das camadas no Athena e validação da migração
+
+Decisão: Silver, Gold e Quarentena foram registradas no Glue Data Catalog como
+tabelas externas, criadas por DDL no Athena (src/athena/01_criar_tabelas.sql),
+no banco tcc_galpoes. A Silver é particionada por ano, com partições
+registradas por MSCK REPAIR TABLE. A quarentena é registrada apenas com as
+colunas de auditoria. A validação (src/athena/02_validacao.sql) compara
+contagens com o ambiente local e recalcula a Gold do segmento no Athena a
+partir da Silver, com a regra da DA-24.
+
+Motivo: DDL explícita e versionada no repositório garante rastreabilidade e
+controle dos tipos, obtidos do esquema real dos Parquet, sem depender de
+inferência automática por crawler. O recálculo da Gold no Athena comprova a
+portabilidade do SQL (DA-23) e a equivalência entre o ambiente local e a
+nuvem.

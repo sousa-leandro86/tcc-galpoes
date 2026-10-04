@@ -494,3 +494,23 @@ existe para imóveis em construção, o que explica os 97,7% de nulos (complemen
 DA-14); o prazo de entrega é de 45 dias após o trimestre, o que ajuda a explicar
 2026 com só dois trimestres. Capítulo 2 revisado: retiradas as afirmações não
 sustentadas sobre Ribeiro et al. (2022), incluídos os métodos de projeção na 2.4.
+
+
+Início da migração para a nuvem (DA-11): AWS Academy Learner Lab. Bucket
+criado com bronze/ (7 ZIPs trimestrais), silver/imoveis/ (partições ano=2020
+a ano=2026), gold/ (uma pasta por tabela), quarentena/imoveis/ e
+athena-resultados/. Prints da estrutura salvos.
+
+
+Migração para a AWS (Learner Lab, us-east-1): bucket tcc-galpoes-leandro-2026
+com bronze/, silver/, gold/ (uma pasta por tabela), quarentena/ e
+athena-resultados/. Esquema dos Parquet levantado no notebook 03
+(Data_Referencia em timestamp[us], Trimestre em int32). Banco tcc_galpoes com
+5 tabelas externas; 7 partições da Silver registradas via MSCK REPAIR (DA-31).
+Problema: o script 1 colado inteiro executou só o CREATE DATABASE, porque o
+editor do Athena executa uma instrução por vez; resolvido rodando bloco a
+bloco, em abas separadas. Validações: V1 5.607 registros e 7 anos; V2 26 /
+5.606 / 892 / 4; V3 area_zero 106, area_acima_limite 23, vacancia_ausente 1;
+V4 Gold 1 recalculada no Athena com 26 trimestres, 5.606 registros e maior
+diferença de vacância ponderada de 2,78E-17 (ponto flutuante). Resultados
+idênticos ao ambiente local.
