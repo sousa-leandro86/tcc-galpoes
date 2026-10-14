@@ -457,3 +457,20 @@ controle dos tipos, obtidos do esquema real dos Parquet, sem depender de
 inferência automática por crawler. O recálculo da Gold no Athena comprova a
 portabilidade do SQL (DA-23) e a equivalência entre o ambiente local e a
 nuvem.
+
+
+## DA-32 — Componentes da AWS utilizados e descartados
+
+Decisão: na nuvem, são usados o S3 (armazenamento das camadas), o Glue Data
+Catalog (metadados das tabelas) e o Athena (consultas SQL). Não são usados o
+Glue Crawler, os jobs de ETL do Glue nem o Amazon QuickSight. O dashboard é
+construído no Power BI, conectado ao Athena por driver ODBC, em modo de
+importação.
+
+Motivo: o processamento das camadas já é feito e validado localmente (pandas
+e DuckDB), e o volume (5.607 registros na Silver) não justifica jobs de ETL
+em escala, que consomem créditos por tempo de execução. O crawler foi
+substituído por DDL explícita e versionada (DA-31). O QuickSight conectaria
+ao Athena sem driver, mas exige assinatura com cobrança por usuário,
+incompatível com o crédito disponível; o Power BI já era o entregável definido
+e é a ferramenta do ecossistema que o autor domina.
