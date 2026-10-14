@@ -273,3 +273,12 @@ Observação: a faixa de erro é o erro absoluto médio observado no teste
 Observações: no Athena, os nomes de colunas aparecem em minúsculas. A tabela
 quarentena_imoveis declara só as colunas de auditoria (cnpj_fundo_classe,
 nome_imovel, classe, area, percentual_vacancia, ano, motivo_quarentena).
+
+
+| Objeto no Athena                         | Tipo   | Local no S3                                   | Origem                                     |
+|------------------------------------------|--------|-----------------------------------------------|--------------------------------------------|
+| imoveis_trimestre                        | view   | —                                             | silver_imoveis com a regra da DA-24        |
+| gold_vacancia_segmento_trimestral_nuvem  | tabela | gold_nuvem/vacancia_segmento_trimestral/      | CTAS no Athena (03_gold_na_nuvem.sql)      |
+| gold_vacancia_fundo_trimestral_nuvem     | tabela | gold_nuvem/vacancia_fundo_trimestral/         | CTAS no Athena (03_gold_na_nuvem.sql)      |
+
+Colunas iguais às das Gold correspondentes enviadas do ambiente local.

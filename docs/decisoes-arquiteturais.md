@@ -474,3 +474,23 @@ substituído por DDL explícita e versionada (DA-31). O QuickSight conectaria
 ao Athena sem driver, mas exige assinatura com cobrança por usuário,
 incompatível com o crédito disponível; o Power BI já era o entregável definido
 e é a ferramenta do ecossistema que o autor domina.
+
+
+## DA-33 — Transformação Silver → Gold executada na nuvem
+
+Decisão: a etapa Silver → Gold foi executada no Athena: a regra de
+alinhamento temporal (DA-24) foi criada como a view tcc_galpoes.imoveis_trimestre,
+e as Gold do segmento e por fundo foram geradas por CTAS (CREATE TABLE AS
+SELECT) em Parquet, em s3://tcc-galpoes-leandro-2026/gold_nuvem/, como as
+tabelas gold_vacancia_segmento_trimestral_nuvem e
+gold_vacancia_fundo_trimestral_nuvem (script src/athena/03_gold_na_nuvem.sql).
+A etapa Bronze → Silver e a projeção permanecem locais.
+
+Motivo: o SQL da Gold já era portável e validado (DA-23, DA-31), o que
+permitiu executar uma etapa de transformação do pipeline na nuvem com baixo
+custo. A Gold gerada na nuvem fica em pasta separada da Gold enviada do
+ambiente local, para permitir a comparação linha a linha. Bronze → Silver
+permanece local porque o Athena não lê arquivos ZIP nem executa Python, e
+um job de ETL do Glue teria custo e complexidade incompatíveis com o
+escopo; a projeção (média móvel e MAE) é feita em Python. A execução
+completa do pipeline na nuvem fica como trabalho futuro.

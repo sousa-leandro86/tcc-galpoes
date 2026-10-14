@@ -514,3 +514,12 @@ bloco, em abas separadas. Validações: V1 5.607 registros e 7 anos; V2 26 /
 V4 Gold 1 recalculada no Athena com 26 trimestres, 5.606 registros e maior
 diferença de vacância ponderada de 2,78E-17 (ponto flutuante). Resultados
 idênticos ao ambiente local.
+
+
+Gold gerada na nuvem (DA-33): view imoveis_trimestre e CTAS das Gold 1 e 2
+no Athena, gravadas em gold_nuvem/. Validação contra a Gold local — Gold 1:
+26 linhas, 26 casadas, 0 contagens divergentes, diferença máxima de 2,78E-17
+(ponderada) e 1,39E-17 (simples), 929 ms, 2,29 KB lidos. Gold 2: 892 linhas,
+892 casadas, 0 divergentes, diferença máxima de 5,82E-11 m² (área vaga) e
+1,11E-16 (ponderada), 820 ms, 16,15 KB lidos. Diferenças atribuídas à
+aritmética de ponto flutuante.
