@@ -20,3 +20,5 @@ __pycache__/
 # Temporários de sistema operacional
 Thumbs.db
 .DS_Store
+
+*.pbix
