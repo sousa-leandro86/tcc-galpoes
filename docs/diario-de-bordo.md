@@ -3,6 +3,11 @@
 Registro do que foi feito, quando e por quê. Base para o capítulo de Materiais e Métodos.
 Início do projeto: 16/08/2026.
 
+Revisado em 16/10/2026: blocos sem data receberam subtítulo com a etapa correspondente
+(as datas exatas desses blocos não foram registradas na época); entradas antigas que a
+execução depois corrigiu receberam nota de remissão; pendências atualizadas; incluídas as
+entradas da nuvem, do Power BI e da redação.
+
 ---
 
 ## 16/08/2026 — Escolha da fonte de dados
@@ -110,6 +115,9 @@ consolidado por fundo e não por contrato.
 Reparei também que quase todo campo numérico vem como `nvarchar`, ou seja, texto. Vai exigir
 conversão de tipo na Silver.
 
+> Nota (16/10/2026): suposição corrigida em 24/09 — `nvarchar` é o tipo no banco da CVM; no
+> CSV os números vêm com ponto decimal e o pandas os lê como `float64`.
+
 ### Dicionário do informe trimestral
 
 Achei o que eu precisava. A tabela `imovel` tem `Area`, `Percentual_Locado`,
@@ -121,6 +129,13 @@ em vez de calcular a vacância, vou (a) validar `Percentual_Locado + Percentual_
 e mandar o que falhar para a quarentena, (b) converter percentual em área absoluta, (c)
 consolidar por fundo ponderando por área, e (d) cruzar vacância física com participação na
 receita.
+
+> Nota (16/10/2026): a vacância não é calculada pela CVM. Ela é declarada pelo administrador
+> do fundo no informe (Instrução CVM 472, art. 39) e publicada pela CVM, que não a calcula
+> nem a audita.
+
+> Nota (16/10/2026): o item (a) caiu em 13/09 (`Percentual_Locado` com 97,7% de nulos, DA-14);
+> o item (d) não foi executado e fica como trabalho futuro.
 
 Na tabela `complemento` encontrei o cronograma de vencimento de contratos por faixa de meses
 e os indexadores de reajuste (IGPM, IPCA, INCC, INPC). Contrato vencendo perto é risco de
@@ -136,6 +151,9 @@ uns 12 pontos, insuficiente para série temporal. Com sete anos vou para uns 26.
 
 E a pandemia deixa de ser problema e vira assunto: o setor logístico foi um dos poucos que se
 beneficiou, com a explosão do e-commerce. Dá para analisar isso em vez de esconder.
+
+> Nota (16/10/2026): a afirmação sobre a pandemia não tem fonte verificada e não entra na
+> monografia como explicação dos dados.
 
 ---
 
@@ -169,7 +187,10 @@ registros viram 100 fundos.
 
 Na Silver a deduplicação tem que ser por CNPJ, não por nome.
 
+> Nota (16/10/2026): na prática, a regra atuou na contagem de fundos da tabela `geral`; a
+> tabela `imovel` não teve duplicatas (DA-08).
 
+---
 
 ## 03/09/2026 — Revisão e particionamento
 
@@ -187,16 +208,15 @@ dispersos, tratar tipagem e duplicidade, consolidar por segmento com ponderaçã
 não existe na fonte — e montar a série histórica para análise e projeção. Isso é coerente com
 a questão de pesquisa, que pergunta pela arquitetura do pipeline, não pelo indicador.
 
+> Nota (16/10/2026): onde se lê "vem calculada da CVM", leia-se "vem declarada pelo
+> administrador do fundo e publicada pela CVM".
 
+> Nota (16/10/2026): a questão de pesquisa foi reformulada após o feedback de 14/09 e passou a
+> perguntar pelas técnicas de tratamento e feature engineering (ver 17/09 e DA-10).
 
-## Pendências
+---
 
-- Escolha da nuvem: AWS ou Microsoft Fabric. Não bloqueia o trabalho local.
-- Autorização para usar dados da empresa. Opcional — o trabalho se sustenta só com a CVM.
-- Solicitar template e normas ABNT à coordenação.
-- Verificar na fonte as citações clássicas do referencial teórico antes de fechar o texto.
-
-## 13/09/2026 — Duagnóstico de Qualidade
+## 13/09/2026 — Diagnóstico de qualidade
 
 Rodei diagnóstico de qualidade na tabela imovel (2025, fundos logísticos, 1640 registros).
 
@@ -214,7 +234,9 @@ com o mercado logístico.
 Encontrei outlier grave em Area: máximo de 191.766.900 m². Área mediana é 13.912 m².
 Provável erro de preenchimento na origem. Primeiro caso concreto para a quarentena.
 
+> Nota (16/10/2026): o valor exato do máximo, conferido em 24/09, é 191.766.920 m².
 
+---
 
 ## 17/09/2026 — Feedback do professor orientador
 
@@ -235,7 +257,7 @@ Boa notícia: o trabalho técnico que venho fazendo já é feature engineering
 (derivação de ocupação, conversão para área absoluta, ponderação por área, regras
 de quarentena, deduplicação por CNPJ). O ajuste é de ênfase no texto, não de rumo.
 
-
+---
 
 ## 17/09/2026 — Revisão da monografia após feedback
 
@@ -256,8 +278,12 @@ no texto, agora estão.
 
 Pendente: decidir se recupero Ballou e as demais, o que exige localizar as obras.
 
+> Nota (16/10/2026): Ballou (2006) foi incorporado em 18/09 (DA-15); as demais seguem fora.
 
-## 24/09/2026
+---
+
+## 24/09/2026 — Extremos de área e início do notebook 02
+
 Investigação dos extremos da coluna Area (imóveis logísticos, 2025).
 
 Caso Aurora (CNPJ 35.652.278/0001-28): o mesmo imóvel aparece com 19.176.692 m²
@@ -297,7 +323,14 @@ CNPJ_Fundo_Classe. Minha hipótese inicial (mudança pela Resolução CVM 175, f
 últimos cinco anos (2021–2026) e o arquivo de 2020 ficou fora dessa janela.
 Corrigido com renomeação de colunas dentro da função — ver DA-18.
 
+> Nota (16/10/2026): a página do conjunto de dados na CVM confirma que os arquivos dos
+> últimos cinco anos são atualizados semanalmente e que o histórico anterior fica fora dessa
+> política. A explicação é compatível com a fonte, mas a CVM não declara a causa exata da
+> diferença de nomes de colunas.
 
+
+
+### Notebook 02 — carga, versões e escopo (data não registrada; entre 24/09 e 26/09)
 
 Carga dos sete anos concluída: 6.192 registros no total. Cada registro é um imóvel
 em um trimestre, não um imóvel — 2025 tem 1.640 registros, cerca de 410 imóveis.
@@ -312,8 +345,6 @@ Pontos a investigar: salto de 956 registros (2024) para 1.640 (2025); tipos de i
 na coluna Classe (terreno não tem vacância); se o arquivo guarda versões antigas dos
 informes.
 
-
-
 Diagnóstico de versões: 1.008 informes (fundo + trimestre), nenhum com mais de uma
 versão no arquivo. A CVM entrega só a versão vigente. Duplicatas exatas: zero.
 A tabela imovel não precisa de deduplicação.
@@ -322,6 +353,8 @@ Coluna Classe tem quatro valores: renda acabados (5.737), renda em construção 
 venda acabados (195), venda em construção (62). Estudo fica com renda acabados.
 
 
+
+### Notebook 02 — qualidade e Silver (data não registrada; entre 24/09 e 26/09)
 
 Aplicado escopo e regras de qualidade nos sete anos: 5.737 registros no escopo,
 5.607 aprovados, 130 em quarentena (2,3%) — 106 por área zero, 23 por área acima
@@ -332,8 +365,6 @@ restou 1 registro. A ausência era estrutural — concentrada em imóveis em con
 e à venda, onde vacância não se aplica. Valida a DA-19 com dado. O mesmo para os
 terrenos: nenhum restou entre os aprovados.
 
-
-
 Silver concluída: 5.607 registros, 17 colunas, gravada em Parquet particionado por
 ano (ano=2020 a ano=2026). Verificação de leitura bateu. Teste de sanidade: área
 vaga + área locada reconstitui a área total (diferença máxima 5,8e-11, arredondamento).
@@ -342,6 +373,8 @@ Quarentena gravada em dados/quarentena/imoveis.parquet, com 130 registros e o
 motivo de cada rejeição.
 
 
+
+### Notebook 03 — Silver para Gold (data não registrada; até 01/10)
 
 Notebook 03 iniciado. View DuckDB sobre a Silver enxerga os 5.607 registros.
 
@@ -357,7 +390,6 @@ Prévia: vacância ponderada em geral menor que a média simples (vacância conc
 em galpões pequenos); a partir do 4º trimestre de 2025 a área vaga sobe para mais
 de 850 mil m² e a ponderada supera a simples.
 
-
 Verificação de datas por fundo e trimestre: 1 caso — fundo 13.012.312/0001-67,
 1º trimestre de 2023, datas 31/01 e 31/03, 1 registro em cada. Regra aplicada:
 manter a data mais recente de cada fundo no trimestre (DA-24). Gold refeita com
@@ -370,12 +402,10 @@ Observações para a EDA: vacância ponderada abaixo da simples até 2025-T3; em
 2026 caem registros (378 → 275 → 201) e área total (15,4 → 12,8 mi m²) — checar
 se 2026-T2 está incompleto ou se houve mudança na composição de fundos.
 
-
 Inspeção do conflito de datas (fundo 13.012.312/0001-67, 2023 T1): os dois
 registros são o mesmo imóvel (Pilkington, 2.230 m², vacância 0, Versao 1), com
 datas 31/01 e 31/03. Confirma a regra da DA-24: o descarte da data anterior
 evita dupla contagem e não remove nenhum imóvel real.
-
 
 Criada a view imoveis_trimestre com a regra da DA-24 (DA-25): 5.606 registros,
 igual à Gold 1. Gold 2 gerada a partir dela (vacância por fundo por trimestre,
@@ -383,11 +413,13 @@ gold/vacancia_fundo_trimestral.parquet): 892 linhas (= soma de qtd_fundos da
 Gold 1), 5.606 registros, área vaga total idêntica à da Gold 1. Fundo
 identificado só por CNPJ (DA-26).
 
-
 Decidido não criar a Gold 3 (evolução do mercado): as colunas já existem na
 Gold 1 (DA-27). Camada Gold fechada com duas tabelas. Célula de conclusões
 adicionada ao fim do notebook 03.
 
+
+
+### Notebook 04 — análise exploratória (data não registrada; até 01/10)
 
 Notebook 04 criado (análise exploratória). Setup lê as duas tabelas da Gold:
 26 e 892 linhas, conferidas. Figura 1 (vacância ponderada × simples) gerada.
@@ -397,7 +429,6 @@ anotação do notebook 03); 2024-T3 a 2025-T3 ponderada cai para cerca de 2% e
 simples se mantém entre 3% e 5%; a partir de 2025-T4 a ponderada sobe e passa
 a simples, chegando a 7,6% em 2026-T2. Eixo Y ajustado para começar em zero
 (DA-28).
-
 
 Figura 1 refeita com eixo Y a partir de zero. Figura 2 (evolução da amostra:
 fundos, imóveis e área total) gerada em três painéis com eixo X compartilhado.
@@ -410,7 +441,6 @@ reclassificados como Logística em 2025, entrando pela seleção anual (DA-17);
 entrega. Na queda da ponderada em 2025-T1 com área total crescendo, hipótese
 de efeito de composição: fundos novos com imóveis grandes e bem ocupados.
 
-
 Investigação do salto de 2025-T4 (Gold 2): aumento do segmento de 570.968 m²
 de área vaga, validado pela soma das variações por fundo. Os cinco maiores
 aumentos somam 574.578 m² (100,6% do total); os demais fundos reduziram, em
@@ -419,7 +449,6 @@ responde sozinho por 338.478 m² (59,3%). Entre os fundos presentes nos dois
 trimestres, destaque para 16.671.412/0001-93 (de 6.427 para 128.176 m² vagos).
 O 35.652.278/0001-28 (fundo do imóvel Aurora em quarentena) aparece com 67.420
 m² de aumento, vindos dos seus demais imóveis.
-
 
 Decomposição do salto de 2025-T4 (DA-29): entraram 4 fundos (338.478 m²,
 59,3%), saíram 4 (0 m²), permaneceram 51 (232.491 m², 40,7%). Toda a parcela
@@ -432,7 +461,6 @@ de entrada vem do 63.574.240/0001-10: um imóvel de 338.477,53 m², 100% vago em
 vaga dos demais fundos sobe de 314.479 m² (2025-T4) para 566.596 m² (2026-T2).
 Prazo: EDA será encerrada com as figuras 3 e 4.
 
-
 Imóvel do fundo 63.574.240/0001-10 identificado na Silver: Terminal Multimodal
 de Camaçari (Polo Petroquímico de Camaçari), 338.477,53 m², vacância 100% em
 2025-12-31, 2026-03-31 e 2026-06-30. Figura 3 gerada (área vaga 2024-T1 a
@@ -440,7 +468,6 @@ de Camaçari (Polo Petroquímico de Camaçari), 338.477,53 m², vacância 100% e
 ajustada com o nome do imóvel. Observação para a Discussão: o segmento
 Logística reúne ativos heterogêneos (terminal multimodal × condomínio de
 galpões), conforme classificação declarada pelo próprio fundo.
-
 
 Figura 3 finalizada com legenda nomeando o Terminal Multimodal de Camaçari.
 Figuras apagadas por engano e regeneradas com Run All (reprodutibilidade).
@@ -452,6 +479,9 @@ entre 4,3% e 7,2%, sem tendência. A tabela de percentuais vai para a
 monografia junto com a figura.
 
 
+
+### Notebook 05 — série temporal e projeção (data não registrada; até 01/10)
+
 Notebook 05 criado. Série de 26 trimestres (2020-T1 a 2026-T2). Comparação de
 métodos com holdout temporal dos 4 últimos trimestres (DA-13): MAE média móvel
 3,57 pontos, tendência linear 3,73, ingênuo 3,75; inclinação da reta no treino
@@ -459,7 +489,6 @@ de −0,121 ponto por trimestre. No 2025-T3 os três erram menos de 0,3 ponto; d
 2025-T4 em diante, todos projetam até cerca de 2% contra reais de 5,52% a
 7,59%. Métodos simples acompanham o regime estável e não antecipam a ruptura
 de composição identificada na EDA.
-
 
 Projeção final (DA-13) recalculada com a série inteira: média dos 4 últimos
 trimestres = (1,81 + 5,52 + 7,00 + 7,59) ÷ 4 = 5,48%, repetida de 2026-T3 a
@@ -469,7 +498,7 @@ inclui o 2025-T3, anterior à ruptura. Gravada em
 gold/projecao_vacancia_trimestral.parquet (escala 0 a 1). Figura 5 gerada
 (série observada, média móvel, projeção e faixa de erro).
 
-
+---
 
 ## 01/10/2026 — Auditoria da monografia e nuvem
 
@@ -485,22 +514,25 @@ Nuvem: iniciados testes na AWS. Corte em 03/10; sem ambiente funcional até lá,
 a migração entra na monografia como etapa planejada. DA-11 será fechada
 após os testes.
 
+---
 
 ## 01/10/2026 — Anexo 39-II da Instrução CVM 571/2015
 
 Localizei o normativo que define o informe trimestral. Três achados: o formulário
-não diz se a vacância é física ou financeira (vira premissa, DA-31); "% locado" só
+não diz se a vacância é física ou financeira (vira premissa, DA-35); "% locado" só
 existe para imóveis em construção, o que explica os 97,7% de nulos (complemento da
 DA-14); o prazo de entrega é de 45 dias após o trimestre, o que ajuda a explicar
 2026 com só dois trimestres. Capítulo 2 revisado: retiradas as afirmações não
 sustentadas sobre Ribeiro et al. (2022), incluídos os métodos de projeção na 2.4.
 
+---
+
+## 02/10 a 13/10/2026 — Migração para a AWS (datas de cada passo não registradas)
 
 Início da migração para a nuvem (DA-11): AWS Academy Learner Lab. Bucket
 criado com bronze/ (7 ZIPs trimestrais), silver/imoveis/ (partições ano=2020
 a ano=2026), gold/ (uma pasta por tabela), quarentena/imoveis/ e
 athena-resultados/. Prints da estrutura salvos.
-
 
 Migração para a AWS (Learner Lab, us-east-1): bucket tcc-galpoes-leandro-2026
 com bronze/, silver/, gold/ (uma pasta por tabela), quarentena/ e
@@ -515,7 +547,6 @@ V4 Gold 1 recalculada no Athena com 26 trimestres, 5.606 registros e maior
 diferença de vacância ponderada de 2,78E-17 (ponto flutuante). Resultados
 idênticos ao ambiente local.
 
-
 Gold gerada na nuvem (DA-33): view imoveis_trimestre e CTAS das Gold 1 e 2
 no Athena, gravadas em gold_nuvem/. Validação contra a Gold local — Gold 1:
 26 linhas, 26 casadas, 0 contagens divergentes, diferença máxima de 2,78E-17
@@ -523,3 +554,109 @@ no Athena, gravadas em gold_nuvem/. Validação contra a Gold local — Gold 1:
 892 casadas, 0 divergentes, diferença máxima de 5,82E-11 m² (área vaga) e
 1,11E-16 (ponderada), 820 ms, 16,15 KB lidos. Diferenças atribuídas à
 aritmética de ponto flutuante.
+
+---
+
+## 15 e 16/10/2026 — Dashboard Power BI
+
+Power BI conectado ao Athena (DA-34): driver ODBC 2.x instalado, DSN
+athena_tcc_galpoes testado com sucesso (Athena engine version 3, us-east-1).
+Problema 1: teste falhou com "security token ... invalid"; causa: valor colado
+com prefixo ou incompleto; resolvido copiando só o valor após o "=", via Bloco
+de Notas. Carga em modo Importar: 26, 892 e 4 linhas, conferidas no Table
+view. Problema 2: a tabela de dados da projeção foi removida do modelo por
+engano (confusão entre o visual de tabela e a tabela de dados); recarregada
+do Athena. Problema 3: o Format painter copiou o formato percentual do cartão
+de vacância para o de área vaga; corrigido manualmente (Display units None, 0
+casas). Cartões: 7,59%, 972.494 m² e 49 fundos (2026-T2); projeção 5,48%,
+faixa de 1,91% a 9,05%.
+
+Achado no ranking de 2026-T2: 63.574.240/0001-10 com 338.478 m² e
+26.502.794/0001-85 com 266.763 m² vagos. Cálculo manual: o segundo fundo tinha
+47.208 m² vagos em 2025-T4, e o aumento de 219.555 m² responde por cerca de
+87% do aumento da área vaga dos demais fundos entre 2025-T4 e 2026-T2
+(252.117 m²); os dois maiores somam cerca de 62% da área vaga do segmento em
+2026-T2 (605.240 de 972.494 m²), e os dez maiores, cerca de 97%. A vacância
+recente é concentrada em poucos ativos grandes.
+
+> Nota (16/10/2026): os valores do ranking foram conferidos no print do dashboard (ev16);
+> o valor de 47.208 m² em 2025-T4 ainda precisa ser confirmado por consulta à Gold 2 antes
+> de entrar na monografia.
+>
+> Nota (16/10/2026, redação dos resultados): confirmado. A saída da célula de decomposição do
+> notebook 04 mostra o fundo 26.502.794/0001-85 com 47.208,18 m² vagos em 2025-T4 (47.079,17 m²
+> em 2025-T3). Recalculados a partir das saídas executadas: aumento de 219.555 m² = 87,1% dos
+> 252.117 m² dos demais fundos; dois maiores = 605.241 m² (62,2%); dez maiores = 945.918 m²
+> (97,3%), com os valores arredondados do painel.
+
+---
+
+## 16/10/2026 — Documentação revisada e fontes verificadas
+
+Corrigidas as decisões arquiteturais: numeração duplicada (projeção = DA-13,
+Athena = DA-31, premissa física = DA-35), DA-12 registrada, DA-10 sem a
+afirmação antiga sobre campos em texto, DA-36 (sem print e sem valor de custo).
+Dicionário de dados corrigido (ponto decimal, Silver, quarentena, derivadas).
+
+Fontes da monografia verificadas. Hyndman e Athanasopoulos (2021) tratam a média
+móvel como suavização, não como previsão; a fonte para a previsão por média móvel
+é Hyndman (2011). Fascículos confirmados nas editoras: Ribeiro n. 3, Sousa e
+Oliveira n. 22, Tufano n. 3. Os 11 artigos anexados ao projeto continuam como base
+do referencial; as fontes novas cobrem conceitos estatísticos e a documentação
+oficial das ferramentas usadas.
+
+---
+
+## 16/10/2026 — Quem informa a vacância
+
+Correção de entendimento que vinha desde o início: a CVM não calcula a vacância. O
+percentual é declarado pelo administrador do fundo no informe trimestral (o art. 39 da
+Instrução CVM 472 atribui ao administrador a prestação das informações periódicas) e a
+CVM só publica. Não há cálculo nem auditoria do percentual pela CVM. Isso reforça a
+necessidade das regras de qualidade: o erro de preenchimento do Aurora (área 10 vezes
+maior) chegou ao arquivo público sem filtro. A DA-01 dizia que os dados eram auditados
+por órgão regulador; corrigido.
+
+---
+
+## 17/10/2026 — Imóveis do segundo fundo com maior área vaga
+
+Consulta pontual na Silver (notebook 04, célula nova entre a fig03 e a fig04) sobre o
+fundo 26.502.794/0001-85, segundo maior em área vaga no 2026-T2. Somas por data
+conferidas com a Gold 2 (47.079; 47.208; 122.541; 266.763 m²) e soma das variações
+igual ao aumento do fundo (219.555 m²).
+
+Achado: 206.680 m² do aumento (94,1%) vêm de seis imóveis ausentes do informe de 2025-T4
+e informados 100% vagos. CD São Bernardo - CD CL Imigrantes V (62.457 m²) entrou em
+2026-T1; CD Jundiaí I, CD Jundiaí II, CD Gaia AR Jarinu, CD Barão de Mauá Atibaia e
+CD Gaia TF Jarinu (144.223 m²) entraram em 2026-T2. Os 12.876 m² restantes vêm de imóveis
+já informados, sobretudo Piracicaba (+10.878 m²).
+
+Teste de renomeação (a CVM não tem identificador de imóvel): quantidade de imóveis do
+fundo 17 → 23 → 24 → 29 e área total 931.097 → 1.249.089 → 1.311.546 → 1.455.768 m². Os
+acréscimos de 2026-T1 (+62.457 m²) e 2026-T2 (+144.222 m²) coincidem com as áreas dos
+imóveis incluídos. São inclusões, não renomeações.
+
+Consequência: 82,0% do aumento da área vaga dos demais fundos entre 2025-T4 e 2026-T2
+(206.680 de 252.117 m²) é efeito de composição no nível do imóvel. A composição muda em
+dois níveis: entrada de fundos na amostra (Terminal de Camaçari) e inclusão de imóveis em
+fundos que já estavam nela. Monografia atualizada nas Seções 3.7.3 e 3.7.4 (V5). O motivo
+da vacância integral desses imóveis não está nos dados (hipótese não verificada).
+
+---
+
+## Pendências (atualizado em 17/10/2026)
+
+- ~~Escolha da nuvem: AWS ou Microsoft Fabric.~~ Resolvido: AWS Academy Learner Lab (DA-11).
+- ~~Solicitar template e normas ABNT à coordenação.~~ Resolvido: modelo PECE em uso.
+- ~~Verificar na fonte as citações clássicas do referencial teórico.~~ Feito em 01/10 e 16/10.
+- Autorização para usar dados da empresa: não obtida; o trabalho se sustenta só com a CVM
+  (DA-01). Dados corporativos ficam como trabalho futuro.
+- ~~Confirmar o valor de 47.208 m² vagos do fundo 26.502.794/0001-85 em 2025-T4.~~ Confirmado
+  na saída do notebook 04 (16/10/2026).
+- Resultados (3.6 a 3.9) redigidos na MonoLeandroV5; faltam 3.10 Discussão e Limitações e o
+  capítulo 4.
+- Commit do notebook 04 com a consulta pontual do fundo 26.502.794/0001-85, após executar a
+  célula nova localmente.
+- Redigir os capítulos 3 e 4 e os elementos pré-textuais; envio ao orientador em 20/10/2026.
+- Gerar a ficha catalográfica no serviço da Biblioteca da Poli.

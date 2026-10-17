@@ -494,3 +494,28 @@ permanece local porque o Athena não lê arquivos ZIP nem executa Python, e
 um job de ETL do Glue teria custo e complexidade incompatíveis com o
 escopo; a projeção (média móvel e MAE) é feita em Python. A execução
 completa do pipeline na nuvem fica como trabalho futuro.
+
+
+## DA-34 — Dashboard Power BI sobre a Gold gerada na nuvem
+
+Decisão: dashboard de página única no Power BI Desktop, conectado ao Athena
+por driver ODBC (Amazon Athena ODBC 2.x, DSN de usuário athena_tcc_galpoes,
+autenticação IAM Credentials com as credenciais temporárias do Learner Lab),
+em modo Importar. Consome gold_vacancia_segmento_trimestral_nuvem,
+gold_vacancia_fundo_trimestral_nuvem e gold_projecao_vacancia_trimestral, sem
+relacionamentos entre elas. Visuais: série da vacância ponderada × média
+simples (linhas retas com marcadores); três cartões do último trimestre
+observado (2026-T2, filtro no próprio visual); ranking dos 10 fundos com maior
+área vaga em 2026-T2 (filtro Top N); três cartões da projeção (agregação
+Average), com fundo diferenciado, e nota do método. A conversão para
+porcentagem é feita só no Power BI (DA-28). O arquivo .pbix fica fora do
+versionamento; o PDF exportado e o print são versionados.
+
+Motivo: o modo Importar mantém o dashboard funcional depois que as
+credenciais temporárias expiram, o que DirectQuery não permitiria. A projeção
+por média móvel é constante no horizonte, então foi apresentada em cartões
+(valor e faixa) em vez de uma tabela com quatro linhas iguais; o fundo
+diferenciado distingue valor projetado de valor observado. Cada visual usa uma
+única tabela, o que evita filtros cruzados inesperados. Linhas sem suavização
+evitam desenhar valores inexistentes entre trimestres. O .pbix contém cópia
+dos dados importados (DA-04).
