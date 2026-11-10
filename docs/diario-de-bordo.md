@@ -737,5 +737,6 @@ modelo.
 - ~~Aplicar os ajustes do orientador quando ele devolver a V12.~~ Feito (MonoLeandroV13).
 - ~~Confirmar a área de concentração da folha de rosto.~~ Mantida como no modelo (cadastro Apolo).
 - Revisão final de formatação ABNT e referências, depois envio da versão final ao PECE.
-- Gerar a ficha catalográfica no formulário da Biblioteca da Poli por último, com a paginação
-  final.
+- ~~Gerar a ficha catalográfica.~~ Gerada em 10/11 no formulário da Poli (75 p.; assuntos:
+  Processamento de dados, Banco de dados, Análise de séries temporais, Fundo de investimento,
+  Galpões) e inserida no verso da folha de rosto.
