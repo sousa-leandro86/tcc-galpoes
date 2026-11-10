@@ -661,7 +661,68 @@ na lista mas não no texto. A versão de envio ao orientador é a MonoLeandroV12
 
 ---
 
-## Pendências (atualizado em 17/10/2026)
+## 04/11/2026 — Ajustes pedidos pelo orientador
+
+O orientador devolveu a V12 com uma observação geral: o trabalho precisa mostrar resultados de
+aplicação geral, e a vacância dos galpões deve aparecer como estudo de caso, uma prova de
+conceito que levanta hipóteses para outras áreas. Mudei o enquadramento sem mudar nenhum número.
+
+- Resumo, Abstract e palavras-chave reescritos com o enquadramento geral.
+- Capítulo 1: tirei a motivação pessoal, o objetivo e a questão de pesquisa ficaram gerais,
+  entrou o objetivo (e) sobre hipóteses e a seção 1.3 foi refeita (prova de conceito,
+  contribuição acadêmica e contribuição para organizações).
+- Capítulo 2: a seção de vacância foi para o fim (2.4) como conceito do estudo de caso, entrou
+  a nota de rodapé de "estrutura subjacente" e a frase da learning table ficou geral.
+- Capítulo 3: virou "Estudo de Caso", com um parágrafo de abertura sobre prova de conceito, nove
+  parágrafos "Aplicação a outros contextos" nos pontos que ele marcou e a nova seção 3.10.2 com
+  quatro hipóteses (composição, ponderação, taxa de rejeição e portabilidade do SQL).
+- Capítulo 4 reescrito com os achados gerais primeiro e os resultados do caso depois.
+- Seis referências novas, todas conferidas na fonte: Janssen, Charalabidis e Zuiderwijk (2012),
+  Wang e Strong (1996), Kandel et al. (2011), Lino et al. (2019), Wilkinson et al. (2016) e
+  Armbrust et al. (2021).
+
+Versão gerada: MonoLeandroV13.
+
+---
+
+## 10/11/2026 — Título novo
+
+O título aprovado na proposta citava "dados históricos de aluguéis" e "características
+operacionais dos imóveis", que o trabalho não usa, e colocava a vacância como objeto principal.
+Depois da revisão, sugeri ao orientador um título alinhado ao objetivo e ele aprovou a troca:
+"Feature engineering em dados públicos periódicos: estudo de caso da vacância de galpões
+logísticos". Ele também liberou o envio ao PECE depois da revisão final de formatação ABNT e
+das referências.
+
+---
+
+## 10/11/2026 — Revisão final de formatação (v4)
+
+Revisei a v3 contra o modelo da PECE, a orientação do trabalho escrito, os slides da disciplina
+eEDB-007 e as normas ABNT. Correções: erros de digitação e itálico no título; referência à
+Seção 3.10.3; palavras-chave com ponto e vírgula (NBR 6028:2021); siglas explicadas na primeira
+vez em cada capítulo, como pede a Aula 3; tradução de benchmarking e notebooks; ARIMA e AWS na
+lista de abreviaturas. Os slides pedem pelo menos cinco artigos dos últimos três anos, contando
+o ano atual, e havia só três (Fioravanti 2024, Silva 2024 e Öztürk 2025). Entraram mais dois,
+conferidos na fonte, na Seção 2.1.3: Oliveira e Silva (2024) e Silva e Silva (2025).
+
+---
+
+## 10/11/2026 — Repositório público
+
+Deixei o repositório do GitHub público (https://github.com/sousa-leandro86/tcc-galpoes), porque a
+disciplina pede que os algoritmos e os dados considerados sejam divulgados e porque o trabalho
+defende a reprodutibilidade. Antes, conferi que não há dados, arquivo .pbix nem credenciais
+versionados. A monografia passou a citar o repositório na 3.1.2 e na 4.1, com a referência
+SOUSA (2026). Versão gerada: v5.
+
+A área de concentração da folha de rosto fica como no modelo da PECE: o cadastro do curso no
+sistema Apolo da USP registra a área de conhecimento "Engenharia/Tecnologia/Gestão", a mesma do
+modelo.
+
+---
+
+## Pendências (atualizado em 10/11/2026)
 
 - ~~Escolha da nuvem: AWS ou Microsoft Fabric.~~ Resolvido: AWS Academy Learner Lab (DA-11).
 - ~~Solicitar template e normas ABNT à coordenação.~~ Resolvido: modelo PECE em uso.
@@ -671,8 +732,10 @@ na lista mas não no texto. A versão de envio ao orientador é a MonoLeandroV12
 - ~~Redigir os capítulos 3 e 4 e os elementos pré-textuais.~~ Feito (MonoLeandroV12).
 - Autorização para usar dados da empresa: não obtida. O trabalho fica só com a CVM (DA-01) e os
   dados corporativos vão para trabalhos futuros.
-- Confirmar o push do notebook 04 e dos três documentos de `docs/`.
-- Aplicar os ajustes do orientador quando ele devolver a V12.
-- Confirmar com o PECE a área de concentração da folha de rosto.
+- ~~Confirmar o push do notebook 04.~~ Está no GitHub (commit de 17/10).
+- Enviar ao GitHub o diário e o README atualizados em novembro.
+- ~~Aplicar os ajustes do orientador quando ele devolver a V12.~~ Feito (MonoLeandroV13).
+- ~~Confirmar a área de concentração da folha de rosto.~~ Mantida como no modelo (cadastro Apolo).
+- Revisão final de formatação ABNT e referências, depois envio da versão final ao PECE.
 - Gerar a ficha catalográfica no formulário da Biblioteca da Poli por último, com a paginação
-  final. Entrega final em 29/10/2026.
+  final.

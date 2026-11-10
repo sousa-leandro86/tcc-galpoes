@@ -22,3 +22,7 @@ Thumbs.db
 .DS_Store
 
 *.pbix
+
+# Texto da monografia — não versionar (documentos Word e PDFs gerados da monografia)
+*.docx
+monografia/*.pdf

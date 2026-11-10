@@ -1,14 +1,15 @@
-# TCC: Análise de Vacância e Ocupação de Galpões Logísticos
+# TCC: Feature engineering em dados públicos periódicos: estudo de caso da vacância de galpões logísticos
 
 Especialização em Engenharia de Dados e Big Data, PECE/Poli-USP.
 Autor: Leandro Pereira de Sousa. Orientador: Prof. Dr. Luiz Sérgio de Souza.
 
 ## Objetivo
 
-Aplicar técnicas de tratamento e feature engineering sobre os informes trimestrais dos
-fundos imobiliários do segmento logístico, para produzir variáveis consistentes que permitam
-medir e acompanhar a vacância e a ocupação dos galpões. O pipeline em camadas
-(Bronze, Silver, Gold e quarentena) é o meio que torna esse tratamento reproduzível.
+Aplicar técnicas de tratamento e feature engineering a dados públicos publicados de forma
+periódica, dispersa e sem padronização, para produzir variáveis analíticas consistentes. O
+estudo de caso, conduzido como prova de conceito, usa os informes trimestrais dos fundos
+imobiliários do segmento logístico para medir e acompanhar a vacância dos galpões. O pipeline
+em camadas (Bronze, Silver, Gold e quarentena) é o meio que torna esse tratamento reproduzível.
 
 ## Fonte de dados
 
@@ -53,10 +54,10 @@ são enviadas ao S3:
 - `analises/`: notebooks numerados na ordem de execução
 - `src/athena/`: SQL do Athena (catálogo, validação e Gold na nuvem)
 - `scripts/`: rotinas administrativas (PowerShell)
-- `dashboard/`: painel do Power BI exportado em PDF (o `.pbix` não é versionado, porque
+- `dashboard/`: imagem (PNG) do painel do Power BI (o `.pbix` não é versionado, porque
   guarda cópia dos dados)
 - `docs/`: diário de bordo, decisões arquiteturais e dicionário de dados
-- `monografia/`: texto e figuras
+- `monografia/figuras/`: figuras usadas na monografia (o texto da monografia não é versionado)
 
 ## Ambiente de nuvem
 
